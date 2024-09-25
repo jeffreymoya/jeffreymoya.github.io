@@ -1,0 +1,202 @@
+[
+  {
+    "question": "1. What is the purpose of the 'event' and 'context' parameters in an AWS Lambda function handler?",
+    "answer": "The 'event' parameter contains data from the event that triggered the function, such as messages or HTTP requests. The 'context' parameter provides methods and properties that provide information about the invocation, function, and execution environment."
+  },
+  {
+    "question": "2. How does Node.js handle asynchronous operations?",
+    "answer": "Node.js uses an event-driven, non-blocking I/O model. It handles asynchronous operations using callbacks, Promises, or async/await syntax, allowing the main thread to continue executing without waiting for I/O operations to complete."
+  },
+  {
+    "question": "3. Multiple Choice: Which AWS service is used for container orchestration?\nA) AWS Lambda\nB) Amazon ECS\nC) Amazon S3\nD) AWS CloudFormation",
+    "answer": "B) Amazon ECS"
+  },
+  {
+    "question": "4. Explain the concept of middleware in Express.js.",
+    "answer": "Middleware functions are functions that have access to the request and response objects. They execute code, make changes to the request/response objects, end the request-response cycle, or call the next middleware in the stack."
+  },
+  {
+    "question": "5. What are the benefits of using microservices architecture?",
+    "answer": "Benefits include independent deployment, scalability, isolation of faults, use of different technologies, and alignment with organizational structure for better agility and faster development cycles."
+  },
+  {
+    "question": "6. How do you implement dependency injection in Node.js?",
+    "answer": "Dependency injection can be implemented using design patterns like constructor injection or using libraries like 'InversifyJS' or 'Awilix' to manage dependencies and inversion of control."
+  },
+  {
+    "question": "7. Describe how AWS Lambda scales with incoming traffic.",
+    "answer": "AWS Lambda scales out automatically in response to incoming traffic by creating more instances of the function handler to process multiple events in parallel, up to preset concurrency limits."
+  },
+  {
+    "question": "8. Multiple Choice: Which of the following is NOT a valid HTTP method?\nA) GET\nB) POST\nC) PUSH\nD) DELETE",
+    "answer": "C) PUSH"
+  },
+  {
+    "question": "9. What is the role of Docker in microservices?",
+    "answer": "Docker allows each microservice to run in its own container with its dependencies, providing isolation, consistency across environments, and simplifying deployment and scaling."
+  },
+  {
+    "question": "10. How does Test-Driven Development (TDD) improve code quality?",
+    "answer": "TDD encourages writing tests before code, ensuring that code is testable, meets requirements, reduces bugs, improves design, and results in better documentation through tests."
+  },
+  {
+    "question": "11. Explain the difference between 'let', 'const', and 'var' in JavaScript.",
+    "answer": "'var' is function-scoped, 'let' and 'const' are block-scoped. 'const' variables cannot be reassigned, whereas 'let' can. 'var' hoists the variable declaration, potentially leading to undefined behaviors."
+  },
+  {
+    "question": "12. How would you secure communication between microservices?",
+    "answer": "By implementing mutual TLS authentication, using API gateways, employing service meshes like Istio, and adding authentication and authorization mechanisms such as OAuth tokens."
+  },
+  {
+    "question": "13. Describe the use of Promises in Node.js.",
+    "answer": "Promises provide a way to handle asynchronous operations, allowing chaining of operations and better error handling compared to callbacks, thus avoiding 'callback hell.'"
+  },
+  {
+    "question": "14. Multiple Choice: Which AWS service provides a fully managed message queuing service?\nA) Amazon SNS\nB) Amazon SQS\nC) Amazon MQ\nD) AWS Step Functions",
+    "answer": "B) Amazon SQS"
+  },
+  {
+    "question": "15. What is the purpose of the package.json file in a Node.js project?",
+    "answer": "It holds metadata about the project, including scripts, dependencies, version, and other project configuration settings, enabling npm to manage the project's packages."
+  },
+  {
+    "question": "16. How do you handle exceptions in an async/await function in Node.js?",
+    "answer": "By wrapping the code in a try/catch block to catch and handle any exceptions thrown during the asynchronous operations."
+  },
+  {
+    "question": "17. Explain how you would deploy a Node.js application on AWS ECS.",
+    "answer": "Package the application into a Docker image, push it to a container registry like ECR, define task definitions and services in ECS, and configure cluster settings to deploy and manage the containers."
+  },
+  {
+    "question": "18. What are some common patterns for serverless application design?",
+    "answer": "Common patterns include using functions as a service (FaaS), event-driven processing, API gateways for routing, and utilizing managed services for data storage and messaging."
+  },
+  {
+    "question": "19. Multiple Choice: In TDD, what is the correct order of steps?\nA) Code, Test, Refactor\nB) Test, Code, Refactor\nC) Refactor, Code, Test\nD) Code, Refactor, Test",
+    "answer": "B) Test, Code, Refactor"
+  },
+  {
+    "question": "20. How can you optimize AWS Lambda function performance?",
+    "answer": "By minimizing deployment package size, reusing execution context, adjusting memory allocation, using environment variables wisely, and keeping functions stateless."
+  },
+  {
+    "question": "21. Describe the concept of event-driven architecture.",
+    "answer": "Event-driven architecture is a software design pattern where services communicate by emitting and reacting to events, promoting loose coupling and asynchronous communication."
+  },
+  {
+    "question": "22. How do you perform unit testing in Node.js?",
+    "answer": "By using testing frameworks like Mocha, Jest, or Jasmine to write and run tests that verify individual units of code, often with assertions to validate expected outcomes."
+  },
+  {
+    "question": "23. Explain how the Node.js event loop works.",
+    "answer": "The event loop is a single-threaded loop that manages asynchronous operations. It handles callbacks, I/O operations, timers, and other events by placing them in queues and executing them sequentially."
+  },
+  {
+    "question": "24. Multiple Choice: Which of these is a serverless compute service?\nA) AWS EC2\nB) AWS Lambda\nC) AWS RDS\nD) AWS EBS",
+    "answer": "B) AWS Lambda"
+  },
+  {
+    "question": "25. How do you handle concurrency in Node.js applications?",
+    "answer": "By leveraging the non-blocking I/O model, using clusters to spawn multiple processes, or utilizing worker threads for CPU-intensive tasks."
+  },
+  {
+    "question": "26. What is the purpose of an API Gateway in microservices?",
+    "answer": "An API Gateway acts as a single entry point for clients, routing requests to appropriate microservices, handling cross-cutting concerns like authentication, rate limiting, and monitoring."
+  },
+  {
+    "question": "27. Describe how you would migrate a monolithic application to microservices.",
+    "answer": "Identify bounded contexts, incrementally extract functionalities into microservices, establish communication between services, and ensure data consistency and integrity throughout the process."
+  },
+  {
+    "question": "28. Explain the concept of 'inversion of control' and how it relates to dependency injection.",
+    "answer": "Inversion of Control is a design principle where the control of object creation and binding is transferred from the object itself to an external entity. Dependency injection is a method to achieve inversion of control by injecting dependencies into a class."
+  },
+  {
+    "question": "29. Multiple Choice: Which Node.js module is used for handling file system operations?\nA) http\nB) fs\nC) path\nD) url",
+    "answer": "B) fs"
+  },
+  {
+    "question": "30. How do you monitor and debug AWS Lambda functions in production?",
+    "answer": "By using AWS CloudWatch for logging and metrics, enabling X-Ray for tracing, and setting up alarms to monitor function performance and errors."
+  },
+  {
+    "question": "31. Describe a situation where you had to optimize a Node.js application for performance.",
+    "answer": "Answer will vary; look for experiences where the candidate identified bottlenecks using profiling tools, implemented caching, optimized database queries, or improved code efficiency."
+  },
+  {
+    "question": "32. How do you handle secrets management in AWS for your applications?",
+    "answer": "By using AWS Secrets Manager or AWS Parameter Store to securely store and retrieve sensitive information, avoiding hardcoding secrets in code or configuration files."
+  },
+  {
+    "question": "33. What is a 'cold start' in AWS Lambda, and how can it affect your application?",
+    "answer": "A 'cold start' occurs when a new instance of a Lambda function is invoked after being idle. It can cause increased latency due to the time needed to initialize the function's runtime environment."
+  },
+  {
+    "question": "34. Multiple Choice: Which of the following is a benefit of using containerization?\nA) Increased overhead\nB) Environment consistency\nC) Tight coupling\nD) Monolithic architecture",
+    "answer": "B) Environment consistency"
+  },
+  {
+    "question": "35. Explain the role of mocking in unit testing.",
+    "answer": "Mocking involves creating fake implementations of external dependencies to isolate the unit of code being tested, ensuring tests are reliable and not affected by outside factors."
+  },
+  {
+    "question": "36. How do you ensure high availability in a microservices architecture?",
+    "answer": "By deploying services across multiple availability zones or regions, implementing load balancing, designing for redundancy, and using health checks and automatic failover mechanisms."
+  },
+  {
+    "question": "37. Describe the concept of 'back pressure' in Node.js streams.",
+    "answer": "Back pressure is a mechanism to prevent overwhelming a writable stream when the readable stream is producing data faster than it can be consumed, ensuring efficient data flow control."
+  },
+  {
+    "question": "38. How would you design a real-time chat application using Node.js and AWS services?",
+    "answer": "Use WebSocket support in API Gateway or AWS AppSync for real-time communication, AWS Lambda for serverless functions, and DynamoDB for storing messages. Implement authentication and scalability considerations."
+  },
+  {
+    "question": "39. Multiple Choice: Which testing framework is commonly used for behavior-driven development (BDD) in Node.js?\nA) Mocha\nB) Chai\nC) Jasmine\nD) Cucumber.js",
+    "answer": "D) Cucumber.js"
+  },
+  {
+    "question": "40. Explain the use of AWS Step Functions in orchestrating microservices.",
+    "answer": "AWS Step Functions coordinate multiple AWS services into serverless workflows, managing the logic of passing data between services, handling retries, and maintaining state."
+  },
+  {
+    "question": "41. How do you manage versioning of APIs in a microservices environment?",
+    "answer": "By using versioned endpoints, API gateways to route requests to appropriate service versions, and ensuring backward compatibility or using strategies like semantic versioning."
+  },
+  {
+    "question": "42. Describe a challenging bug you encountered in a Node.js application and how you resolved it.",
+    "answer": "Answer will vary; look for problem-solving skills, use of debugging tools, logical reasoning, and ability to learn from the experience."
+  },
+  {
+    "question": "43. What are some best practices for writing clean and maintainable code in Node.js?",
+    "answer": "Use consistent coding styles, follow SOLID principles, write modular code, include comments and documentation, and adhere to DRY (Don't Repeat Yourself) principles."
+  },
+  {
+    "question": "44. Multiple Choice: Which AWS service can be used for real-time data processing?\nA) AWS Glue\nB) Amazon Kinesis\nC) AWS Batch\nD) Amazon S3",
+    "answer": "B) Amazon Kinesis"
+  },
+  {
+    "question": "45. How do you implement caching in a Node.js application?",
+    "answer": "By using in-memory data stores like Redis or Memcached to store frequently accessed data, implementing HTTP caching headers, or using application-level caching mechanisms."
+  },
+  {
+    "question": "46. Explain the difference between horizontal and vertical scaling in the context of AWS services.",
+    "answer": "Horizontal scaling involves adding more instances to distribute load (scaling out), while vertical scaling involves increasing the resources of a single instance (scaling up). AWS services support both methods."
+  },
+  {
+    "question": "47. How would you approach migrating an existing application to a serverless architecture?",
+    "answer": "Assess the application's components, identify parts suitable for serverless, refactor code into Lambda functions, replace persistent connections, and update deployment processes."
+  },
+  {
+    "question": "48. Describe the use of continuous integration and continuous deployment (CI/CD) in application development.",
+    "answer": "CI/CD automates the building, testing, and deployment of applications, allowing for frequent and reliable releases, early detection of issues, and reduced manual effort."
+  },
+  {
+    "question": "49. Multiple Choice: Which of these is a design principle for microservices?\nA) Monolithic codebase\nB) Shared data storage\nC) Single responsibility\nD) Tight coupling",
+    "answer": "C) Single responsibility"
+  },
+  {
+    "question": "50. How do you ensure that your unit tests are effective?",
+    "answer": "By writing tests that cover various scenarios, including edge cases, ensuring tests are independent, maintaining test readability, and regularly reviewing and updating tests."
+  }
+]
