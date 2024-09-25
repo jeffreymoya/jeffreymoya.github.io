@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Q&A</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .answer {
+            display: none;
+            margin-left: 20px;
+            color: #555;
+        }
+        .toggle-btn {
+            margin-left: 10px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Technical Interview Questions</h1>
+<div id="qa-container"></div>
+
+<script>
+  // Fetch the JSON data
+  fetch('https://jeffreymoya.github.io/questions.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('qa-container');
+
+      data.forEach((item, index) => {
+        // Create question element
+        const questionEl = document.createElement('div');
+        questionEl.className = 'question';
+        questionEl.innerHTML = `<strong>${item.question}</strong>`;
+
+        // Create toggle button
+        const toggleBtn = document.createElement('span');
+        toggleBtn.className = 'toggle-btn';
+        toggleBtn.textContent = 'Show Answer';
+        toggleBtn.addEventListener('click', () => {
+          const answerEl = questionEl.querySelector('.answer');
+          if (answerEl.style.display === 'none') {
+            answerEl.style.display = 'block';
+            toggleBtn.textContent = 'Hide Answer';
+          } else {
+            answerEl.style.display = 'none';
+            toggleBtn.textContent = 'Show Answer';
+          }
+        });
+
+        questionEl.appendChild(toggleBtn);
+
+        // Create answer element
+        const answerEl = document.createElement('div');
+        answerEl.className = 'answer';
+        answerEl.textContent = item.answer;
+        questionEl.appendChild(answerEl);
+
+        // Append to container
+        container.appendChild(questionEl);
+      });
+    })
+    .catch(error => console.error('Error fetching JSON:', error));
+</script>
+
+</body>
+</html>
