@@ -1,0 +1,10 @@
+[
+  {
+    "label": "AWS",
+    "file": "aws.json"
+  },
+  {
+    "label": "AWS & Node.js",
+    "file": "node_aws.json"
+  }
+]
