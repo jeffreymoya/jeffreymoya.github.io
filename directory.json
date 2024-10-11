@@ -6,5 +6,9 @@
   {
     "label": "AWS & Node.js",
     "file": "node_aws.json"
+  },
+  {
+    "label": "Java Principal",
+    "file": "java_principal.json"
   }
 ]
