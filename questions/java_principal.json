@@ -1,278 +1,196 @@
 [
-  {
-    "question": "What is the difference between preemptive and cooperative multitasking in complex problem-solving?",
-    "answer": "Preemptive multitasking allows the operating system to control the time allocation of each process, whereas cooperative multitasking requires processes to voluntarily yield control."
-  },
-  {
-    "question": "How would you approach a situation where the root cause of a problem is unknown and multiple components are involved?",
-    "answer": "I would start by defining the problem scope, gathering relevant data, and using systematic debugging tools like profilers, logs, and trace analysis to isolate potential causes."
-  },
-  {
-    "question": "What is observability, and how does it differ from traditional monitoring?",
-    "answer": "Observability refers to the ability to infer the internal state of a system based on external outputs, while monitoring involves tracking specific metrics and logs to detect issues."
-  },
-  {
-    "question": "How would you use Kibana to debug a slow-performing web service?",
-    "answer": "I would set up Kibana to analyze application logs, filter by latency or error messages, and visualize trends to identify performance bottlenecks or problematic requests."
-  },
-  {
-    "question": "Explain how you would use New Relic to diagnose memory leaks in a Java application.",
-    "answer": "I would use New Relic’s APM to monitor JVM memory usage, analyze heap dumps, and look for objects that are continuously growing or not being garbage collected."
-  },
-  {
-    "question": "What are the differences between JDK, JRE, and JVM?",
-    "answer": "JDK (Java Development Kit) provides tools to develop and run Java programs. JRE (Java Runtime Environment) offers a runtime environment to execute Java programs. JVM (Java Virtual Machine) is responsible for executing bytecode."
-  },
-  {
-    "question": "What is the purpose of the Java Memory Model (JMM)?",
-    "answer": "The JMM defines the interaction between Java threads and memory, ensuring visibility and ordering of variables in a concurrent execution environment."
-  },
-  {
-    "question": "Describe how the Just-In-Time (JIT) compiler optimizes Java code execution.",
-    "answer": "The JIT compiler translates bytecode into machine code at runtime, performing optimizations like method inlining and loop unrolling to improve performance."
-  },
-  {
-    "question": "What is classloading, and how does it work in Java?",
-    "answer": "Classloading is the process of dynamically loading Java classes into the JVM. It follows a delegation model where classes are loaded by the parent classloader before the child classloader attempts to load them."
-  },
-  {
-    "question": "Explain how classloading works across multiple web servers in a clustered environment.",
-    "answer": "In a clustered environment, classloading can be managed by shared classloaders, distributed caching, or synchronizing class versions to ensure consistency across nodes."
-  },
-  {
-    "question": "What are the different types of garbage collection algorithms available in Java?",
-    "answer": "Common algorithms include Serial GC, Parallel GC, CMS (Concurrent Mark Sweep), G1 (Garbage First), and ZGC, each with varying trade-offs in throughput, latency, and memory footprint."
-  },
-  {
-    "question": "What are the pros and cons of using the G1 garbage collector?",
-    "answer": "Pros: Low pause times, suitable for large heaps. Cons: Higher CPU overhead, complex tuning compared to other collectors."
-  },
-  {
-    "question": "How does the Java Threading Model handle synchronization and concurrency?",
-    "answer": "The Java Threading Model uses monitors and synchronized blocks to control access to shared resources, ensuring thread safety while managing concurrent execution."
-  },
-  {
-    "question": "How would you approach debugging a high CPU usage issue in a production environment?",
-    "answer": "I would use tools like `jstack` to obtain thread dumps, analyze CPU usage with `top` or `jvisualvm`, and review application logs to identify threads consuming excessive CPU resources."
-  },
-  {
-    "question": "What are J2EE Design Patterns, and why are they important?",
-    "answer": "J2EE Design Patterns provide reusable solutions for common problems in enterprise applications, such as separation of concerns, scalability, and flexibility in software design."
-  },
-  {
-    "question": "Explain the Singleton Design Pattern and its typical use cases.",
-    "answer": "The Singleton Design Pattern ensures that a class has only one instance and provides a global point of access to it. It’s typically used for managing shared resources, like configuration settings."
-  },
-  {
-    "question": "What is the Factory Pattern, and how does it contribute to the flexibility of code?",
-    "answer": "The Factory Pattern abstracts object creation, allowing subclasses to decide which class to instantiate, promoting loose coupling and extensibility."
-  },
-  {
-    "question": "How does the JIT compiler differ from the traditional AOT (Ahead-Of-Time) compiler?",
-    "answer": "The JIT compiler optimizes code at runtime based on execution patterns, whereas an AOT compiler performs optimizations before execution, making it less adaptive."
-  },
-  {
-    "question": "What are the key benefits of using the Parallel GC over the Serial GC?",
-    "answer": "Parallel GC utilizes multiple threads for garbage collection, improving throughput on multi-core systems, while Serial GC uses a single thread, making it suitable for single-threaded applications."
-  },
-  {
-    "question": "How would you configure the CMS garbage collector, and what are its limitations?",
-    "answer": "CMS can be configured with flags like `-XX:+UseConcMarkSweepGC` and `-XX:CMSInitiatingOccupancyFraction`. It’s prone to fragmentation issues and requires careful tuning to avoid concurrent mode failures."
-  },
-  {
-    "question": "What is the purpose of the Metaspace in Java 8 and later versions?",
-    "answer": "Metaspace stores class metadata outside the heap, reducing the risk of OutOfMemory errors due to classloading and allowing dynamic resizing based on demand."
-  },
-  {
-    "question": "What are the differences between the NewRelic APM and Kibana when it comes to performance monitoring?",
-    "answer": "NewRelic APM provides application-level insights, transaction traces, and error analysis, whereas Kibana focuses on log analysis, visualization, and aggregation of logs for troubleshooting."
-  },
-  {
-    "question": "How can you optimize a Java application for lower memory consumption using garbage collection settings?",
-    "answer": "Use settings like `-Xms` and `-Xmx` for heap size, choose a GC algorithm suited for your application profile, and configure flags like `-XX:MaxHeapFreeRatio` to control memory utilization."
-  },
-  {
-    "question": "Explain the purpose of thread pools in Java and how they improve resource management.",
-    "answer": "Thread pools allow reuse of threads, reducing overhead associated with thread creation and termination, and manage thread lifecycle, ensuring optimal utilization of resources."
-  },
-  {
-    "question": "How would you identify and resolve classloading issues in a large-scale J2EE application?",
-    "answer": "I would use tools like `jvisualvm` or `jstack` to analyze classloaders and class hierarchy, look for `ClassNotFoundException` or `NoClassDefFoundError`, and ensure correct dependencies across servers."
-  },
-  {
-    "question": "Describe the Observer Pattern and its use in J2EE applications.",
-    "answer": "The Observer Pattern defines a one-to-many dependency between objects, so when one object changes state, all its dependents are notified. It’s used for implementing event handling and broadcasting."
-  },
-  {
-    "question": "What is thread contention, and how can you minimize its impact on performance?",
-    "answer": "Thread contention occurs when multiple threads try to access shared resources simultaneously. It can be minimized by reducing lock granularity, using atomic variables, or leveraging thread-local storage."
-  },
-  {
-    "question": "What are weak references, and how can they be used to optimize memory management?",
-    "answer": "Weak references allow objects to be garbage collected when they’re only weakly referenced, useful for caching strategies where memory retention should be minimized."
-  },
-  {
-    "question": "What are the benefits of using the Volatile keyword in Java?",
-    "answer": "The Volatile keyword ensures visibility of changes to variables across threads, preventing CPU caching issues and providing a lightweight synchronization mechanism for simple variable updates."
-  },
-  {
-    "question": "What are the advantages of using the Flyweight Design Pattern in a J2EE application?",
-    "answer": "The Flyweight Pattern reduces memory usage by sharing common parts of objects that are duplicated multiple times, improving application efficiency and scalability."
-  },
-  {
-    "question": "How does the JMM (Java Memory Model) handle instruction reordering and memory visibility?",
-    "answer": "The JMM allows the JVM and hardware to reorder instructions for optimization, but it guarantees that synchronized and volatile operations will have a happens-before relationship, ensuring visibility and ordering."
-  },
-  {
-    "question": "What is a memory leak, and how would you detect one in a Java application?",
-    "answer": "A memory leak occurs when objects that are no longer needed are still referenced, preventing garbage collection. Tools like VisualVM, heap dumps, and profilers can help detect and analyze memory leaks."
-  },
-  {
-    "question": "How do you tune the garbage collector for low-latency applications?",
-    "answer": "Use low-latency collectors like G1 or ZGC, configure young and old generation sizes, set pause-time goals with flags like `-XX:MaxGCPauseMillis`, and analyze GC logs for tuning adjustments."
-  },
-  {
-    "question": "What are the risks associated with frequent class reloading in a Java application?",
-    "answer": "Frequent class reloading can lead to increased memory consumption, classloader leaks, performance degradation, and potential `OutOfMemoryError` in the Metaspace."
-  },
-  {
-    "question": "How does the Double-Checked Locking pattern ensure thread safety in singleton implementations?",
-    "answer": "Double-Checked Locking minimizes synchronization overhead by first checking if the instance is created outside the synchronized block, ensuring only one instance is created in a multithreaded environment."
-  },
-  {
-    "question": "What is the difference between a soft reference and a weak reference in Java?",
-    "answer": "A soft reference allows the object to be garbage collected only when memory is low, whereas a weak reference allows the object to be garbage collected as soon as it's no longer strongly reachable."
-  },
-  {
-    "question": "What are the potential drawbacks of using a large heap size in a Java application?",
-    "answer": "Large heap sizes can increase garbage collection pause times, lead to longer full GC cycles, and cause memory fragmentation, impacting application performance and responsiveness."
-  },
-  {
-    "question": "What is the difference between serial and parallel garbage collection?",
-    "answer": "Serial GC uses a single thread to perform garbage collection, suitable for single-core environments, while Parallel GC uses multiple threads for GC tasks, improving performance on multi-core systems."
-  },
-  {
-    "question": "How does the concept of immutability in Java help with thread safety?",
-    "answer": "Immutable objects cannot be modified after creation, ensuring that no thread can alter the object’s state, eliminating the need for synchronization and preventing data races."
-  },
-  {
-    "question": "What are daemon threads in Java, and how do they differ from non-daemon threads?",
-    "answer": "Daemon threads are low-priority threads that run in the background and do not prevent the JVM from exiting when all non-daemon threads finish execution. They are typically used for housekeeping tasks."
-  },
-  {
-    "question": "How does the `Thread.sleep()` method affect thread scheduling and performance?",
-    "answer": "`Thread.sleep()` pauses the current thread for a specified time, releasing the CPU and allowing other threads to execute. However, it does not release locks, which can affect synchronization."
-  },
-  {
-    "question": "What is the difference between `ReentrantLock` and `synchronized` in Java?",
-    "answer": "`ReentrantLock` offers more flexibility and features, like try-locking and timed locking, compared to the `synchronized` keyword, which is limited to intrinsic locks and lacks advanced capabilities."
-  },
-  {
-    "question": "How does the Mark-and-Sweep algorithm work in garbage collection?",
-    "answer": "The Mark-and-Sweep algorithm first marks reachable objects, then sweeps through the heap to collect unmarked objects, freeing memory. This algorithm is foundational for many GC implementations."
-  },
-  {
-    "question": "How would you optimize a database query that is causing high CPU usage?",
-    "answer": "I would analyze the query execution plan, check for missing indexes, optimize joins and where clauses, consider denormalization, and use caching to reduce database load."
-  },
-  {
-    "question": "What is a classloader leak, and how can you prevent it?",
-    "answer": "A classloader leak occurs when classes are not properly unloaded, usually due to static references or improperly closed resources. It can be prevented by managing class dependencies and avoiding static caches."
-  },
-  {
-    "question": "What are the key principles of the Decorator Design Pattern, and when would you use it?",
-    "answer": "The Decorator Pattern allows behavior to be added to individual objects, dynamically and transparently, without affecting other objects. It’s used for flexible and scalable functionality extension."
-  },
-  {
-    "question": "What is a `Deadlock`, and how can you identify and resolve it in a multithreaded Java application?",
-    "answer": "A deadlock occurs when two or more threads are blocked forever, waiting for each other’s locks. Tools like `jstack` and thread dumps can help identify deadlocks, and careful lock ordering or timeout mechanisms can resolve them."
-  },
-  {
-    "question": "What are Phantom References, and how are they used in Java?",
-    "answer": "Phantom references allow tracking of an object’s lifecycle after it has been finalized, useful for post-mortem cleanup activities or ensuring resources are properly deallocated."
-  },
-  {
-    "question": "How does the JVM handle class initialization, and what is the order of execution for static and instance initializers?",
-    "answer": "The JVM initializes classes in the order of superclass to subclass, executing static initializers first, followed by instance initializers and constructors, ensuring a predictable order for class loading and initialization."
-  },
-  {
-    "question": "What is the difference between a `Callable` and a `Runnable` in Java?",
-    "answer": "`Runnable` does not return a result and cannot throw checked exceptions, while `Callable` returns a result and allows throwing checked exceptions."
-  },
-  {
-    "question": "How does the `ForkJoinPool` work, and when would you use it?",
-    "answer": "`ForkJoinPool` is designed to recursively break down a task into smaller subtasks, distributing them among threads. It is useful for parallel processing, especially in divide-and-conquer algorithms."
-  },
-  {
-    "question": "Explain the purpose of the `volatile` keyword in Java.",
-    "answer": "`volatile` ensures that updates to a variable are visible to all threads and prevents the JVM from reordering the read and write operations for that variable."
-  },
-  {
-    "question": "What is the purpose of the `PermGen` space, and how is it different from `Metaspace`?",
-    "answer": "`PermGen` was used to store class metadata in Java versions prior to 8. In Java 8 and later, `Metaspace` replaced `PermGen` and resides outside the heap, providing better memory management."
-  },
-  {
-    "question": "What are the key advantages of the Z Garbage Collector (ZGC) in Java?",
-    "answer": "ZGC offers low-latency garbage collection with sub-millisecond pause times, making it suitable for applications requiring real-time response, and supports large heaps with minimal impact on throughput."
-  },
-  {
-    "question": "How would you identify and resolve a `java.lang.OutOfMemoryError: Metaspace` issue?",
-    "answer": "I would analyze the classloading behavior, increase the Metaspace size using `-XX:MaxMetaspaceSize`, and check for potential classloader leaks that are causing excessive Metaspace usage."
-  },
-  {
-    "question": "What is the difference between the Adapter Pattern and the Facade Pattern?",
-    "answer": "The Adapter Pattern converts an interface into a different one that the client expects, while the Facade Pattern simplifies complex subsystems by providing a unified interface."
-  },
-  {
-    "question": "What are the main benefits of using the Builder Pattern in Java?",
-    "answer": "The Builder Pattern allows for constructing complex objects step-by-step, providing better readability, immutability, and separation of construction logic from the object representation."
-  },
-  {
-    "question": "Explain the concept of 'escape analysis' in the JIT compiler.",
-    "answer": "Escape analysis determines whether an object can be safely allocated on the stack instead of the heap, reducing garbage collection pressure and improving performance by eliminating unnecessary synchronization."
-  },
-  {
-    "question": "What is a 'stop-the-world' pause in garbage collection, and how can you minimize its impact?",
-    "answer": "A 'stop-the-world' pause halts all application threads for garbage collection. It can be minimized by using low-pause collectors like G1 or ZGC, optimizing heap size, and tuning GC settings."
-  },
-  {
-    "question": "How does the `PhantomReference` differ from `WeakReference` and `SoftReference`?",
-    "answer": "`PhantomReference` is used to track object finalization and cannot be accessed directly. `WeakReference` allows garbage collection as soon as it is no longer strongly reachable, while `SoftReference` is only collected when memory is low."
-  },
-  {
-    "question": "What is the purpose of the `ThreadLocal` class in Java, and what are its common use cases?",
-    "answer": "`ThreadLocal` provides thread-local variables that are isolated from other threads. It is commonly used for maintaining state like user sessions or database connections specific to a thread."
-  },
-  {
-    "question": "What is the difference between optimistic and pessimistic locking in database transactions?",
-    "answer": "Optimistic locking assumes no conflicts will occur and uses versioning for updates, while pessimistic locking prevents conflicts by locking resources at the start of a transaction."
-  },
-  {
-    "question": "How does the `ReentrantReadWriteLock` improve concurrency compared to a regular `ReentrantLock`?",
-    "answer": "`ReentrantReadWriteLock` allows multiple threads to read a resource simultaneously, but only one thread can write, improving concurrency by separating read and write locks."
-  },
-  {
-    "question": "What are the different phases of the G1 garbage collector, and how do they contribute to GC efficiency?",
-    "answer": "G1 GC phases include marking, cleanup, and evacuation. They segregate heap regions by live data to optimize memory compaction and reduce pause times, improving overall GC efficiency."
-  },
-  {
-    "question": "How does method inlining improve performance in the JIT compiler?",
-    "answer": "Method inlining replaces a method call with the method body, reducing the overhead of calls and enabling further optimizations like constant propagation and loop unrolling."
-  },
-  {
-    "question": "What are the benefits and limitations of using the CMS (Concurrent Mark-Sweep) garbage collector?",
-    "answer": "CMS offers low pause times by performing GC concurrently with application threads, but it can suffer from fragmentation and high CPU usage, and is being deprecated in favor of G1 and ZGC."
-  },
-  {
-    "question": "How does the `CompletableFuture` class improve asynchronous programming in Java?",
-    "answer": "`CompletableFuture` provides a comprehensive API for building non-blocking asynchronous tasks, supporting functional programming styles and composing tasks with `thenApply`, `thenAccept`, and `exceptionally`."
-  },
-  {
-    "question": "What are the primary considerations when choosing between heap and off-heap memory management in Java?",
-    "answer": "Heap memory is managed by the JVM and subject to GC, while off-heap memory reduces GC overhead and is manually managed, making it suitable for caching and reducing GC pauses but increasing complexity."
-  },
-  {
-    "question": "What is the purpose of the `synchronized` keyword in Java, and what are its limitations?",
-    "answer": "`synchronized` provides a way to lock access to critical sections of code to prevent concurrent modification, but it can lead to contention, deadlocks, and lower performance in highly concurrent applications."
-  }
+  {"question": "What is Kibana and what is it used for?", "answer": "Kibana is an open-source data visualization tool for Elasticsearch that is used to visualize log data, create dashboards, and analyze time-series data."},
+
+  {"question": "How do you create a dashboard in Kibana?", "answer": "To create a dashboard in Kibana, go to the Dashboard section, click 'Create new dashboard', add visualizations, and save the dashboard with a unique name."},
+
+  {"question": "What are Kibana visualizations?", "answer": "Kibana visualizations are graphical representations of your data, such as line charts, bar charts, pie charts, and heatmaps, created using data from Elasticsearch indices."},
+
+  {"question": "What is the purpose of the Discover tab in Kibana?", "answer": "The Discover tab allows users to explore data from Elasticsearch indices using search and filter options, and view individual documents and field statistics."},
+
+  {"question": "How do you configure index patterns in Kibana?", "answer": "To configure an index pattern, go to the Management section, select 'Index Patterns', create a new index pattern by providing the index name or pattern, and choose a time field if applicable."},
+
+  {"question": "What is a saved search in Kibana?", "answer": "A saved search is a set of search and filter parameters saved in Kibana that can be used across visualizations and dashboards for consistent data exploration."},
+
+  {"question": "How do you create alerts in Kibana?", "answer": "Kibana alerts can be created in the 'Alerts and Actions' section, where you define conditions, actions, and connectors for sending notifications when data meets specified thresholds."},
+
+  {"question": "What is the role of Elasticsearch in Kibana?", "answer": "Elasticsearch is the data storage and search engine that Kibana uses to query, index, and visualize data."},
+
+  {"question": "What are Timelion and Canvas in Kibana?", "answer": "Timelion is a time-series data visualization tool within Kibana for advanced analytics, while Canvas is a presentation tool for creating visually rich, live data dashboards."},
+
+  {"question": "What is New Relic used for?", "answer": "New Relic is an observability platform used to monitor applications, infrastructure, logs, and digital customer experiences by providing performance metrics and alerts."},
+
+  {"question": "How do you set up New Relic APM for Java applications?", "answer": "To set up New Relic APM for Java, download the New Relic Java agent, configure the `newrelic.yml` file, add the agent to the JVM options, and restart your application."},
+
+  {"question": "What are key performance indicators (KPIs) in New Relic?", "answer": "Key performance indicators in New Relic include response time, throughput, error rate, and Apdex score, which help assess application performance and user satisfaction."},
+
+  {"question": "How do you create a custom dashboard in New Relic?", "answer": "To create a custom dashboard in New Relic, go to the Dashboards section, click 'Add a new dashboard', and add widgets like charts, tables, or histograms based on specific NRQL queries."},
+
+  {"question": "What is the purpose of NRQL in New Relic?", "answer": "NRQL (New Relic Query Language) is a query language used to query and analyze data from New Relic's database, enabling the creation of custom dashboards and alerts."},
+
+  {"question": "How do you monitor browser performance using New Relic?", "answer": "New Relic Browser monitors front-end performance metrics such as page load time, JavaScript errors, and AJAX requests by integrating the New Relic Browser agent into your website."},
+
+  {"question": "What is Distributed Tracing in New Relic?", "answer": "Distributed Tracing in New Relic tracks requests as they flow through distributed systems, providing visibility into application performance and identifying latency or failure points."},
+
+  {"question": "What is New Relic One?", "answer": "New Relic One is a unified observability platform that offers monitoring and analysis of applications, infrastructure, logs, and customer experiences in a single interface."},
+
+  {"question": "How do you set up alerts in New Relic?", "answer": "To set up alerts, go to the Alerts & AI section, create a new alert policy, define conditions based on metrics or NRQL queries, and configure notification channels."},
+
+  {"question": "What is a Service Map in New Relic?", "answer": "A Service Map is a visual representation of the interdependencies between services in your application, helping you understand the flow of data and pinpoint issues."},
+
+  {"question": "How does New Relic’s Infrastructure monitoring work?", "answer": "New Relic Infrastructure monitoring tracks performance metrics for servers, cloud instances, and containers, providing insights into CPU, memory, disk usage, and other resources."},
+  {"question": "What is the role of the Java Compiler (javac)?", "answer": "The Java compiler (`javac`) translates Java source code (.java files) into bytecode (.class files), which can be executed by the Java Virtual Machine (JVM)."},
+
+  {"question": "What are the different stages of Java compilation?", "answer": "The stages include lexical analysis, syntax analysis, semantic analysis, intermediate code generation, optimization, and bytecode generation."},
+
+  {"question": "What is the purpose of the `-source` and `-target` options in `javac`?", "answer": "`-source` specifies the version of Java source code to compile, and `-target` specifies the version of bytecode to generate, ensuring backward compatibility with older JVMs."},
+
+  {"question": "What is Just-In-Time (JIT) compilation in the JVM?", "answer": "JIT compilation translates bytecode into native machine code at runtime, improving execution speed by caching and reusing compiled code for subsequent method calls."},
+
+  {"question": "What are the different types of JIT compilers in the JVM?", "answer": "The JVM has two types of JIT compilers: C1 (Client Compiler) for faster startup time and C2 (Server Compiler) for optimized performance. A hybrid mode called Tiered Compilation combines both."},
+
+  {"question": "What is bytecode verification and why is it important?", "answer": "Bytecode verification is a process in the JVM that checks the validity and safety of the bytecode, ensuring it adheres to Java’s security model and prevents malicious code execution."},
+
+  {"question": "What is the role of the ClassLoader in Java?", "answer": "The ClassLoader loads Java classes dynamically into the JVM during runtime. It is responsible for loading class files, verifying bytecode, and managing the namespace."},
+
+  {"question": "What is the difference between the Bootstrap, Extension, and Application ClassLoader?", "answer": "Bootstrap ClassLoader loads core Java classes from the `rt.jar`. Extension ClassLoader loads classes from the extensions directory (`lib/ext`). Application ClassLoader loads classes from the classpath specified by the user."},
+
+  {"question": "What are class loading mechanisms in Java?", "answer": "Class loading mechanisms include static class loading (classes are loaded at compile-time) and dynamic class loading (classes are loaded at runtime using `Class.forName()` or custom ClassLoaders)."},
+
+  {"question": "What is the purpose of the `java` command-line tool?", "answer": "The `java` command-line tool launches the JVM, loads specified classes, and executes their `main` method, starting the execution of the Java application."},
+
+  {"question": "What are the different JVM memory regions?", "answer": "The JVM memory is divided into several regions, including the Heap (for object storage), Stack (for method call frames and local variables), Method Area (for class data), and Native Method Stack (for native method calls)."},
+
+  {"question": "What is the difference between a HotSpot JVM and OpenJ9?", "answer": "HotSpot JVM is the default Oracle JVM focused on balancing performance and memory usage. OpenJ9 is an IBM-developed JVM optimized for low memory usage and startup time, often used in cloud environments."},
+
+  {"question": "How does the Java bytecode instruction set differ from assembly language?", "answer": "Java bytecode is an abstract instruction set designed for portability across platforms, unlike assembly language, which is hardware-specific. Bytecode operates on an abstract stack-based architecture."},
+
+  {"question": "What are intrinsic methods in the JVM?", "answer": "Intrinsic methods are low-level, highly optimized implementations of standard Java methods (e.g., `System.arraycopy`). The JVM replaces bytecode instructions with intrinsic operations for better performance."},
+
+  {"question": "What is the purpose of the `-XX:+PrintCompilation` JVM flag?", "answer": "The `-XX:+PrintCompilation` flag prints information about methods compiled by the JIT compiler, helping developers analyze compilation times and performance."},
+
+  {"question": "What are the different GC algorithms available in the JVM?", "answer": "Common GC algorithms include Serial GC, Parallel GC, Concurrent Mark-Sweep (CMS), and G1 (Garbage-First) GC, each designed for different performance trade-offs in throughput and pause times."},
+
+  {"question": "What is the difference between eager and lazy class loading?", "answer": "Eager loading loads classes as soon as they are referenced, while lazy loading defers class loading until it is needed, optimizing memory usage and startup time."},
+
+  {"question": "What is the purpose of the `javap` tool?", "answer": "`javap` is a disassembler that provides information about compiled Java classes, including fields, methods, and bytecode instructions, useful for understanding the compiled output."},
+
+  {"question": "How does the JVM optimize method inlining during JIT compilation?", "answer": "Method inlining replaces a method call with the method’s body to eliminate call overhead. The JVM analyzes frequently called small methods and inlines them during JIT compilation to optimize performance."},
+
+  {"question": "What are the different bytecode optimization techniques used by the JVM?", "answer": "Techniques include constant folding, loop unrolling, dead code elimination, method inlining, escape analysis, and replacing bytecode instructions with native instructions."},
+  {"question": "What is the role of the JIT compiler in the JVM?", "answer": "The JIT compiler translates Java bytecode into native machine code at runtime, optimizing program execution and improving performance."},
+
+  {"question": "What is the difference between JIT compilation and interpretation?", "answer": "Interpretation executes bytecode instructions one by one, while JIT compilation translates bytecode into native code in one go, resulting in faster execution after the initial compilation."},
+
+  {"question": "What are the main phases of JIT compilation?", "answer": "The main phases include bytecode verification, hotspot detection, intermediate representation (IR) generation, optimization, and native code generation."},
+
+  {"question": "What is Tiered Compilation in the JVM?", "answer": "Tiered Compilation combines the benefits of the Client (C1) and Server (C2) compilers. It starts with C1 for quick startup and switches to C2 for optimized performance as the code becomes hotter."},
+
+  {"question": "What is the role of HotSpot detection in JIT compilation?", "answer": "HotSpot detection identifies frequently executed code paths (hot spots) and compiles them into highly optimized native code to improve performance."},
+
+  {"question": "How does the JVM decide which methods to compile using JIT?", "answer": "The JVM uses heuristics like method invocation frequency, loop iteration counts, and profiling data to decide which methods to compile and optimize."},
+
+  {"question": "What is deoptimization in JIT compilation?", "answer": "Deoptimization is the process of reverting compiled native code back to interpreted bytecode, typically triggered when assumptions made by the JIT compiler are invalidated at runtime."},
+
+  {"question": "How does JIT handle inline caching?", "answer": "JIT uses inline caching to remember which method was last called at a particular call site, reducing the overhead of method lookup and improving performance for frequently called methods."},
+
+  {"question": "What is escape analysis in JIT compilation?", "answer": "Escape analysis determines whether an object can be safely allocated on the stack instead of the heap, reducing garbage collection overhead and improving performance."},
+
+  {"question": "What are the `-XX:+TieredCompilation` and `-XX:+PrintCompilation` flags used for?", "answer": "`-XX:+TieredCompilation` enables tiered compilation, while `-XX:+PrintCompilation` prints information about methods being compiled, helping in performance tuning and debugging."},
+  {"question": "What is classloading in Java, and how does it work in a web server environment?", "answer": "Classloading is the process of dynamically loading Java classes into the JVM. In a web server environment, classes are loaded from different sources, such as JAR files, WAR files, or classpath directories, based on the deployment configuration."},
+
+  {"question": "What is the role of the ClassLoader in web applications deployed across multiple servers?", "answer": "ClassLoaders manage the loading of classes and resources in a web application. When deployed across multiple servers, ClassLoaders help isolate web applications from each other and ensure proper loading of shared or server-specific libraries."},
+
+  {"question": "What is classloader hierarchy, and how does it impact multiple web servers?", "answer": "Classloader hierarchy defines the parent-child relationship between different ClassLoaders. Typically, web applications use a parent-first (parent delegation) model where the parent ClassLoader loads classes before the child ClassLoader, affecting how shared classes are loaded across servers."},
+
+  {"question": "What are common classloading issues in a distributed web server environment?", "answer": "Common issues include ClassNotFoundException, NoClassDefFoundError, class version conflicts, and classloader leaks caused by inconsistent class versions or incorrect classloader hierarchies across multiple servers."},
+
+  {"question": "What are classloader leaks, and how can they be prevented in a web server environment?", "answer": "Classloader leaks occur when classes are not properly unloaded, leading to memory leaks. This often happens when classes from the application scope hold references to classes from the system or container scope. They can be prevented by using proper resource management, avoiding static references to classes, and careful classloader management."},
+
+  {"question": "How does class reloading work across multiple web servers?", "answer": "Class reloading allows web servers to load updated classes without restarting the entire server. This is usually done by creating a new ClassLoader for updated classes, ensuring old references are cleared to avoid version conflicts."},
+
+  {"question": "What are shared libraries, and how should they be managed across multiple servers?", "answer": "Shared libraries are JAR files or classes that are used by multiple web applications or servers. They should be placed in a shared classpath (e.g., `lib` directory in a web server) to ensure consistent loading and avoid class duplication issues across servers."},
+
+  {"question": "How can class conflicts be resolved in a distributed server environment?", "answer": "Class conflicts can be resolved by ensuring all servers use the same class versions, isolating web applications using separate ClassLoaders, and using server-specific classpath configurations to prevent conflicts."},
+
+  {"question": "What are the implications of using custom ClassLoaders in a multi-server deployment?", "answer": "Custom ClassLoaders can provide flexibility in loading classes, but they can also introduce complexity in class hierarchy management, increase the risk of classloader leaks, and cause inconsistencies in shared resource loading across servers."},
+
+  {"question": "How can you monitor and debug classloading issues in a multi-server environment?", "answer": "Classloading issues can be monitored and debugged using JVM flags (`-verbose:class`), JMX tools, heap dump analysis, and classloader introspection tools (e.g., JVisualVM or Eclipse MAT) to identify classloading problems and memory leaks."},
+  {"question": "What is the Serial Garbage Collector, and what are its pros and cons?", "answer": "The Serial GC (`-XX:+UseSerialGC`) is a single-threaded collector best suited for single-threaded applications or small heaps. Pros: Simple and uses less memory. Cons: Causes long pause times as it performs full GC in a single thread, making it unsuitable for large-scale or multi-threaded applications."},
+
+  {"question": "What is the Parallel Garbage Collector, and what are its pros and cons?", "answer": "The Parallel GC (`-XX:+UseParallelGC`) uses multiple threads for both minor and major GC events. Pros: Good throughput and scalability, ideal for large heaps. Cons: Longer pause times, less responsive in latency-sensitive applications."},
+
+  {"question": "What is the Concurrent Mark-Sweep (CMS) Garbage Collector, and what are its pros and cons?", "answer": "The CMS GC (`-XX:+UseConcMarkSweepGC`) minimizes pause times by performing most GC work concurrently with the application. Pros: Low latency and short pauses, suitable for interactive applications. Cons: Higher CPU usage and fragmentation issues, leading to ‘concurrent mode failures’ if the heap is too small."},
+
+  {"question": "What is the G1 (Garbage-First) Garbage Collector, and what are its pros and cons?", "answer": "G1 GC (`-XX:+UseG1GC`) divides the heap into regions and performs incremental collections. Pros: Predictable pause times and efficient handling of large heaps. Cons: Requires fine-tuning and may have overhead compared to CMS or Parallel GC in some scenarios."},
+
+  {"question": "What is the Z Garbage Collector, and what are its pros and cons?", "answer": "The ZGC (`-XX:+UseZGC`) is a low-latency GC designed for very large heaps (terabytes). Pros: Ultra-low pause times and scalability. Cons: Higher memory footprint and less mature than other GCs, with fewer options for tuning."},
+
+  {"question": "What is the Shenandoah Garbage Collector, and what are its pros and cons?", "answer": "Shenandoah GC (`-XX:+UseShenandoahGC`) is a low-pause-time collector similar to ZGC. Pros: Low pause times, concurrent compaction, good for large heaps. Cons: Higher memory usage, more complex tuning, and still being actively developed."},
+
+  {"question": "How do you configure the heap size for different garbage collectors?", "answer": "Heap size can be configured using `-Xms` (initial heap size) and `-Xmx` (maximum heap size). Adjusting these settings helps control memory allocation and the frequency of garbage collection events."},
+
+  {"question": "What is the Metaspace, and how is it managed in different garbage collectors?", "answer": "Metaspace stores class metadata, and its size can be configured using `-XX:MetaspaceSize` and `-XX:MaxMetaspaceSize`. Managing Metaspace is crucial for applications with frequent class loading and unloading to prevent `OutOfMemoryError`."},
+
+  {"question": "How do you set garbage collection logging, and what information can be obtained?", "answer": "Garbage collection logging can be enabled using `-Xlog:gc` or `-XX:+PrintGCDetails`. The logs provide information on GC events, pause times, heap usage, and garbage collection cycles, useful for tuning and identifying performance issues."},
+
+  {"question": "What are some common garbage collection tuning options and flags?", "answer": "Common tuning flags include `-XX:MaxGCPauseMillis` (target maximum GC pause time), `-XX:GCTimeRatio` (sets throughput target), and `-XX:ParallelGCThreads` (number of GC threads). Tuning these options can balance throughput and latency based on application needs."},
+  {"question": "What is the Java threading model?", "answer": "The Java threading model allows multiple threads to run concurrently within a Java application. Each thread is a separate path of execution that can run independently while sharing the same memory space."},
+
+  {"question": "What is the difference between a thread and a process in Java?", "answer": "A thread is a lightweight, smaller unit of execution that runs within a process. A process is an independent program with its own memory space, while threads share the memory space of their parent process."},
+
+  {"question": "What are the different ways to create a thread in Java?", "answer": "Threads can be created by extending the `Thread` class and overriding the `run` method or by implementing the `Runnable` interface and passing it to a `Thread` object."},
+
+  {"question": "What is the difference between the `Runnable` interface and the `Callable` interface?", "answer": "`Runnable` is used to define a task with no return value, while `Callable` allows defining tasks that return a value and can throw checked exceptions."},
+
+  {"question": "What is the lifecycle of a thread in Java?", "answer": "The thread lifecycle consists of five states: New, Runnable, Blocked, Waiting (or Timed Waiting), and Terminated. The state transitions are managed by the JVM based on thread operations and scheduler behavior."},
+
+  {"question": "What is thread synchronization, and why is it needed?", "answer": "Thread synchronization is the coordination of threads to ensure that shared resources are accessed by only one thread at a time. It prevents data corruption and inconsistency caused by race conditions."},
+
+  {"question": "What are the different synchronization mechanisms in Java?", "answer": "Synchronization mechanisms include the `synchronized` keyword, `Lock` interface, `ReentrantLock`, `ReadWriteLock`, and `Atomic` variables (like `AtomicInteger`, `AtomicLong`)."},
+
+  {"question": "What is the purpose of the `volatile` keyword in threading?", "answer": "The `volatile` keyword ensures visibility of changes to variables across threads by instructing the JVM to not cache the variable and always read it from main memory."},
+
+  {"question": "What is a deadlock, and how can it be prevented?", "answer": "A deadlock occurs when two or more threads are blocked forever, waiting for each other to release resources. It can be prevented by using lock ordering, timeout-based locking, and deadlock detection algorithms."},
+
+  {"question": "What is a race condition, and how can it be avoided?", "answer": "A race condition occurs when the outcome of a program depends on the sequence or timing of uncontrollable events. It can be avoided by using synchronization techniques like `synchronized` blocks or `Lock` interfaces."},
+
+  {"question": "What are thread-safe classes, and can you provide some examples?", "answer": "Thread-safe classes ensure correct behavior when accessed by multiple threads simultaneously. Examples include `ConcurrentHashMap`, `CopyOnWriteArrayList`, `BlockingQueue`, and `Atomic` classes."},
+
+  {"question": "What is the `ThreadLocal` class, and when should it be used?", "answer": "`ThreadLocal` provides thread-local variables that are unique to each thread accessing them, ensuring thread isolation. It is useful when you need to maintain state per thread, like in a user session context."},
+
+  {"question": "What is the Executor framework, and why is it used?", "answer": "The Executor framework provides a higher-level API for managing threads. It decouples task submission from thread management using thread pools and executor services, making it easier to manage large-scale concurrent applications."},
+
+  {"question": "What is a thread pool, and what are its advantages?", "answer": "A thread pool is a collection of pre-created threads that execute tasks. It improves performance by reusing threads, reducing the overhead of thread creation and destruction, and controlling the number of concurrent threads."},
+
+  {"question": "What are the different types of thread pools in the Executor framework?", "answer": "Thread pools include `FixedThreadPool`, `CachedThreadPool`, `SingleThreadExecutor`, and `ScheduledThreadPool`, each designed for different concurrency scenarios."},
+
+  {"question": "What is the difference between `wait()`, `notify()`, and `notifyAll()` in threading?", "answer": "`wait()` causes the current thread to release the lock and wait until `notify()` or `notifyAll()` is called. `notify()` wakes up one waiting thread, while `notifyAll()` wakes up all waiting threads."},
+
+  {"question": "What is the `ForkJoinPool`, and how does it work?", "answer": "The `ForkJoinPool` is designed for divide-and-conquer tasks. It uses a work-stealing algorithm where idle threads can steal tasks from busy threads, improving parallel performance for recursive algorithms."},
+
+  {"question": "What is a daemon thread, and how is it different from a user thread?", "answer": "A daemon thread is a low-priority thread that runs in the background and terminates when all user threads finish execution. Daemon threads are used for background tasks like garbage collection."},
+
+  {"question": "What is the `ReentrantLock` class, and when should it be used?", "answer": "`ReentrantLock` is a lock that allows a thread to lock it multiple times without causing deadlock. It provides more control over synchronization than the `synchronized` keyword, such as fairness and timed locking."},
+
+  {"question": "What is a semaphore, and how does it work in concurrency?", "answer": "A semaphore is a synchronization primitive that controls access to a shared resource by maintaining a set number of permits. Threads acquire permits to access the resource and release them when done, ensuring that only a fixed number of threads can access the resource simultaneously."},
+  {"question": "What initial steps should be taken to diagnose a high CPU issue in a Java application?", "answer": "The initial steps include identifying the process consuming high CPU using tools like `top` or `Task Manager`, collecting thread dumps, analyzing logs for anomalies, and checking JVM metrics (e.g., garbage collection activity)."},
+
+  {"question": "How can thread dumps help identify high CPU consumption?", "answer": "Thread dumps show the state of all threads at a particular moment. High CPU threads are often in the RUNNABLE state. By analyzing thread dumps and identifying repeatedly running threads, you can pinpoint problematic code sections."},
+
+  {"question": "What is the role of Java profilers in diagnosing high CPU issues?", "answer": "Java profilers (e.g., VisualVM, JProfiler, YourKit) track method execution, CPU usage, and memory allocation. They help identify methods or threads consuming excessive CPU by providing detailed call graphs and execution times."},
+
+  {"question": "How can you use logging to identify high CPU usage?", "answer": "Enable detailed logging (e.g., DEBUG or TRACE level) to monitor execution flow. Log timestamps and durations for critical methods to identify long-running operations, recursive calls, or loops that might be causing high CPU usage."},
+
+  {"question": "What are some JVM flags useful for diagnosing high CPU issues?", "answer": "Useful JVM flags include `-Xlog:gc` (garbage collection logging), `-XX:+PrintGCDetails` (detailed GC logging), and `-XX:+PrintCompilation` (JIT compilation logging) to check if GC or JIT activities are contributing to CPU usage."},
+
+  {"question": "How can `jstack` be used to diagnose high CPU issues?", "answer": "`jstack` captures the stack traces of all threads. By correlating the thread IDs with high CPU-consuming threads (found using `top -H` or `ps`), you can identify the specific code causing the issue."},
+
+  {"question": "How can garbage collection affect CPU usage, and how can you analyze it?", "answer": "Frequent or long garbage collection cycles can increase CPU usage. Analyze GC logs to identify GC patterns and check if frequent full GCs or high GC times correlate with CPU spikes."},
+
+  {"question": "How can you identify deadlocks or live locks causing high CPU usage?", "answer": "Use thread dumps or `jconsole` to check for threads waiting on locks (`BLOCKED` state). Deadlocks occur when threads wait on each other indefinitely. Live locks occur when threads are busy-waiting, consuming CPU without making progress."},
+
+  {"question": "What is CPU sampling, and how does it help in diagnosing high CPU issues?", "answer": "CPU sampling is a profiling technique that periodically checks which methods are running. It provides a snapshot of CPU usage without the overhead of instrumentation, making it useful for identifying hot methods or code paths."},
+
+  {"question": "How can you analyze JIT compilation logs to diagnose high CPU usage?", "answer": "Use `-XX:+PrintCompilation` to log JIT compilation activities. High CPU usage might be due to excessive JIT compilations or de-optimizations. Analyze the logs for repetitive compilations or methods being de-optimized frequently."}
+
 ]
