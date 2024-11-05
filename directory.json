@@ -10,5 +10,9 @@
   {
     "label": "Java Principal",
     "file": "java_principal.json"
+  },
+  {
+    "label": "Microservices",
+    "file": "microservices.json"
   }
 ]
