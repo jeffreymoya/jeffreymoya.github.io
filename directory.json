@@ -14,5 +14,17 @@
   {
     "label": "Microservices",
     "file": "microservices.json"
+  },
+  {
+    "label": "Java 50 Basic",
+    "file": "Java_50_basic.json"
+  },
+  {
+    "label": "Java 50 Intermediate",
+    "file": "Java_50_inter.json"
+  },
+  {
+    "label": "Java 50 Advanced",
+    "file": "Java_50_adv.json"
   }
 ]

@@ -1,0 +1,202 @@
+[
+  {
+    "question": "1. What is the difference between the JDK, JRE, and JVM?",
+    "answer": "The JVM (Java Virtual Machine) is the runtime environment that executes bytecode. The JRE (Java Runtime Environment) includes the JVM plus the core libraries and other resources necessary to run Java applications. The JDK (Java Development Kit) is a superset of the JRE, providing additional tools like javac (the Java compiler), javadoc, and debugging utilities needed for developing and compiling Java programs."
+  },
+  {
+    "question": "2. How does Java achieve platform independence?",
+    "answer": "Java code is compiled into bytecode by the javac compiler. This bytecode is an intermediate, platform-neutral format executed by the JVM. Because each platform has its own JVM implementation, the same bytecode can run on multiple operating systems without modification, thus achieving platform independence."
+  },
+  {
+    "question": "3. What are the main principles of object-oriented programming (OOP) in Java?",
+    "answer": "The four main OOP principles are Encapsulation, Inheritance, Polymorphism, and Abstraction. Encapsulation hides internal data and implementation details behind public methods. Inheritance allows classes to derive from other classes to promote code reuse. Polymorphism enables one interface to represent multiple implementations. Abstraction lets developers focus on interfaces rather than implementation details."
+  },
+  {
+    "question": "4. How are objects stored in memory and how does Java handle references?",
+    "answer": "In Java, object data is stored on the heap. Variables referencing objects store memory addresses (references) to those objects. Primitive types like int or double are stored on the stack (if they are local variables) or as part of object fields, but objects always reside on the heap. The garbage collector reclaims heap memory for objects that are no longer referenced."
+  },
+  {
+    "question": "5. What is the difference between a primitive type and a reference type in Java?",
+    "answer": "Primitive types (such as int, boolean, double) are basic data types that store values directly. Reference types (like classes, arrays, and interfaces) store references (pointers) to objects. Primitive variables hold their values in memory locations allocated on the stack (for local variables) or in objects, while reference variables only contain a pointer to the actual object on the heap."
+  },
+  {
+    "question": "6. Why are Strings immutable in Java, and what are the implications?",
+    "answer": "Strings in Java are immutable primarily for security, synchronization, and performance reasons. Immutability ensures that string constants can be cached and shared, reduces security risks (as strings are often used in security-sensitive operations like class loading), and simplifies concurrency (no locking needed for immutable objects). It also allows the JVM to optimize string handling through a string pool."
+  },
+  {
+    "question": "7. What is the difference between String, StringBuilder, and StringBuffer?",
+    "answer": "String is immutable, meaning any modification results in a new String object. StringBuilder and StringBuffer are mutable sequence of characters. StringBuilder is not synchronized and is generally faster for single-threaded operations. StringBuffer is synchronized and thread-safe, but slightly slower. Use StringBuilder when efficiency matters in a single-thread environment, and StringBuffer in multi-threaded contexts where synchronization is necessary."
+  },
+  {
+    "question": "8. What are the access modifiers available in Java, and what do they mean?",
+    "answer": "Java provides four access modifiers: public (accessible from anywhere), protected (accessible within the same package and subclasses), default/package-private (accessible within the same package only), and private (accessible only within the same class). These modifiers help control the visibility and encapsulation of class members."
+  },
+  {
+    "question": "9. How does the 'final' keyword affect classes, methods, and variables?",
+    "answer": "Applying 'final' to a class prevents it from being subclassed, ensuring its structure remains unchanged. Applying 'final' to a method prevents it from being overridden by subclasses, preserving its intended behavior. Applying 'final' to a variable makes it a constant, meaning once assigned, the variable’s value cannot be changed."
+  },
+  {
+    "question": "10. What is the difference between 'abstract' classes and 'interfaces'?",
+    "answer": "An abstract class can have both abstract and concrete methods, as well as instance variables. It can also have constructors but cannot be instantiated directly. An interface is a purely abstract contract (in Java versions before 8) defining methods without implementation. Since Java 8, interfaces can have default and static methods, but cannot hold state (except via static or constant fields). Interfaces are typically used to define a contract independent of class hierarchy, while abstract classes define a shared base for related classes."
+  },
+  {
+    "question": "11. What is inheritance and how does it work in Java?",
+    "answer": "Inheritance in Java allows a class (subclass) to acquire the properties and behaviors (fields and methods) of another class (superclass). Using the 'extends' keyword, the subclass can reuse existing code, override methods to modify behavior, and add new features. It supports hierarchical classification and code reuse but should be used judiciously to maintain logical class relationships."
+  },
+  {
+    "question": "12. Can Java support multiple inheritance of classes?",
+    "answer": "No, Java does not allow multiple inheritance of classes. A class can only extend one other class. However, Java supports multiple inheritance of interfaces, allowing a class to implement multiple interfaces, thereby blending multiple sets of behaviors without class-level conflicts."
+  },
+  {
+    "question": "13. What is method overloading and method overriding?",
+    "answer": "Method overloading occurs when multiple methods in the same class have the same name but different parameter lists (signatures). It’s resolved at compile time. Method overriding occurs when a subclass provides its own implementation of a method defined in its superclass, retaining the same name, parameters, and return type. It’s resolved at runtime and enables dynamic polymorphism."
+  },
+  {
+    "question": "14. How does encapsulation help in Java?",
+    "answer": "Encapsulation helps by restricting direct access to object fields and only allowing interaction through public methods. This ensures data integrity, simplifies maintenance, and hides the complexity of internal object logic. By controlling access, developers can change internal implementations without affecting external code, enhancing flexibility and robustness."
+  },
+  {
+    "question": "15. Explain the concept of polymorphism with an example.",
+    "answer": "Polymorphism allows a reference of a superclass type to point to an object of a subclass type. For example, if you have a superclass Animal and a subclass Dog, you can write: Animal a = new Dog(); Calling a method like a.makeSound() will invoke the Dog’s version at runtime. This lets code be written in terms of abstract types and reduces coupling."
+  },
+  {
+    "question": "16. What is the 'this' keyword and how is it used?",
+    "answer": "The 'this' keyword refers to the current object within a non-static method or constructor. It is used to resolve naming conflicts between instance variables and parameters, to call other constructors within the same class, and to pass the current object as an argument to another method."
+  },
+  {
+    "question": "17. What is the 'super' keyword and how is it used?",
+    "answer": "The 'super' keyword is used to refer to the immediate superclass of the current class. It can be used to call the superclass’s constructor (super(...) must be the first line in a subclass constructor) and to access superclass methods or fields that have been overridden or hidden by the subclass."
+  },
+  {
+    "question": "18. What is the difference between the stack and the heap?",
+    "answer": "The stack is a memory region where method invocations, local variables, and function call frames are stored. It's LIFO (Last-In-First-Out) and automatically managed by the JVM. The heap is a larger memory region where objects and their instance variables reside. Garbage collection manages the heap, reclaiming space of unreferenced objects."
+  },
+  {
+    "question": "19. How does the garbage collector (GC) in Java work?",
+    "answer": "The garbage collector monitors the heap for objects that are no longer reachable by any live references. When it finds such objects, it frees their memory. Java GCs use various algorithms (Mark-Sweep, Mark-Compact, G1, ZGC, etc.) and typically run as background threads. Developers can influence GC behavior by tuning parameters or using different collectors, but cannot explicitly free memory."
+  },
+  {
+    "question": "20. What is the finalize() method and should it be used?",
+    "answer": "The finalize() method was a mechanism to perform cleanup before the object is reclaimed by GC. However, it’s unreliable and has been deprecated in newer versions of Java. It may never run if the GC never decides to call it. It's generally advised to use try-with-resources or explicit cleanup methods instead of finalize()."
+  },
+  {
+    "question": "21. What is an exception, and what are the main types of exceptions in Java?",
+    "answer": "Exceptions are runtime anomalies that disrupt normal program flow. Java distinguishes between checked exceptions, which must be handled or declared (e.g., IOException), and unchecked exceptions (RuntimeExceptions), which represent programming errors (e.g., NullPointerException) and need not be explicitly handled. Errors (e.g., OutOfMemoryError) typically represent serious issues that applications cannot handle gracefully."
+  },
+  {
+    "question": "22. How do you handle exceptions in Java?",
+    "answer": "Exceptions are handled using try-catch blocks. The 'try' block encloses code that may throw an exception, and the 'catch' block defines what to do if that specific exception occurs. A 'finally' block can be used to execute cleanup code regardless of whether an exception is thrown. Alternatively, exceptions can be rethrown or wrapped to propagate them up the call stack."
+  },
+  {
+    "question": "23. What are assertions and when would you use them?",
+    "answer": "Assertions are a development feature that allows you to check assumptions in code at runtime. Using the 'assert' keyword, you can verify conditions that should logically always be true. Assertions can be enabled or disabled at runtime. They are not intended for production error handling but rather for testing assumptions during development."
+  },
+  {
+    "question": "24. What is the difference between 'throw' and 'throws'?",
+    "answer": "The 'throw' keyword is used to actually throw an exception within a method, initiating the exception handling process. The 'throws' keyword is used in a method’s signature to declare that the method may propagate certain exceptions to its caller, giving the caller the responsibility to handle them."
+  },
+  {
+    "question": "25. What are Java generics and what problem do they solve?",
+    "answer": "Java generics enable parameterization of types, allowing classes, interfaces, and methods to operate on objects of various types while providing compile-time type safety. Before generics, collections returned references to Object, requiring casts. With generics, the compiler enforces type constraints, reducing runtime type errors and eliminating many manual casts."
+  },
+  {
+    "question": "26. What is type erasure in Java generics?",
+    "answer": "Type erasure is the process by which all generic type information is removed during compilation. The JVM sees only raw types, ensuring backward compatibility with older code. Although this simplifies the JVM implementation, it restricts certain type-sensitive operations (e.g., you cannot instantiate a generic type parameter directly or use instanceof with a generic type parameter)."
+  },
+  {
+    "question": "27. How do wildcards work in Java generics?",
+    "answer": "Wildcards (e.g., '?', '? extends T', '? super T') provide more flexibility in assigning parameterized types to references. '? extends T' allows reading data as type T without guaranteeing what can be added, while '? super T' ensures you can safely add objects of type T but may have restrictions on reading precise types. Simple '?' means an unknown type with no additional bounds."
+  },
+  {
+    "question": "28. What is the Collections Framework?",
+    "answer": "The Collections Framework is a set of interfaces, implementations, and algorithms for managing groups of objects. It includes interfaces like List, Set, and Map, and implementations like ArrayList, HashSet, and HashMap. It standardizes the way collections are created, manipulated, and iterated over, greatly simplifying tasks involving data structures."
+  },
+  {
+    "question": "29. When would you use an ArrayList versus a LinkedList?",
+    "answer": "ArrayList is better for frequent random access and iterations, as it provides O(1) access by index, but inserting/removing elements in the middle is O(n) because it requires shifting elements. LinkedList excels at insertions and removals from the ends or known nodes in O(1) time, but random access is O(n) due to linear traversal."
+  },
+  {
+    "question": "30. How does a HashMap work internally?",
+    "answer": "HashMap stores key-value pairs in buckets determined by hashing the key’s hashCode(). When you insert an entry, it computes the hash, determines the bucket, and inserts it there. On retrieval, it uses the hash to find the correct bucket and then equals() to find the correct entry. In Java 8 and later, if many keys map to the same bucket, a balanced tree may be used instead of a linked list to improve worst-case performance."
+  },
+  {
+    "question": "31. What are concurrency and parallelism in Java?",
+    "answer": "Concurrency refers to dealing with multiple tasks logically running at the same time, sharing resources. Parallelism means running tasks literally at the same time on multiple processors. Java supports concurrency through threads, locks, and executors. The Fork/Join framework and parallel streams can exploit multiple cores for true parallel execution."
+  },
+  {
+    "question": "32. What is a thread in Java, and how do you create one?",
+    "answer": "A thread is a lightweight unit of execution managed by the JVM. You can create a thread by extending the Thread class and overriding run(), or by implementing the Runnable interface and passing an instance to a Thread object. Alternatively, you can use the Executor framework to manage threads and tasks more efficiently."
+  },
+  {
+    "question": "33. What are the differences between synchronized methods and synchronized blocks?",
+    "answer": "A synchronized method locks the object’s intrinsic lock for the entire method execution. A synchronized block allows more fine-grained control, locking only the specified object and only for the block’s duration. Synchronized blocks can reduce contention and improve performance by narrowing the locked region."
+  },
+  {
+    "question": "34. What is the volatile keyword and when would you use it?",
+    "answer": "Volatile ensures that reads and writes to a variable are always done from and to main memory, rather than from a thread’s local cache. It provides visibility guarantees so that changes made in one thread are immediately visible to others. However, volatile does not provide atomicity for compound actions like incrementing; for that, synchronization or atomic classes are needed."
+  },
+  {
+    "question": "35. How do the classes in java.util.concurrent improve concurrency handling?",
+    "answer": "The java.util.concurrent package provides thread-safe data structures (e.g., ConcurrentHashMap), synchronization utilities (CountDownLatch, Semaphore, Phaser, CyclicBarrier), blocking queues for producer-consumer patterns, and executors for flexible thread pool management. These utilities simplify the creation of scalable, safe concurrent code without having to manually manage low-level details."
+  },
+  {
+    "question": "36. How do lambda expressions and the Stream API introduced in Java 8 help developers?",
+    "answer": "Lambdas provide a concise way to represent anonymous functions, enabling functional programming patterns. The Stream API allows developers to process collections and arrays in a declarative style, focusing on what to do rather than how to do it. Streams support operations like map, filter, reduce, and can run in parallel, making code more readable and potentially more efficient."
+  },
+  {
+    "question": "37. What is the Optional class and why is it useful?",
+    "answer": "Optional is a container class that may or may not hold a non-null value. By using Optional, developers can explicitly handle the absence of a value, avoiding null checks and NullPointerExceptions. It encourages a more fluent and expressive approach to dealing with potentially empty results, guiding developers to handle empty cases gracefully."
+  },
+  {
+    "question": "38. What are functional interfaces and how do they relate to lambda expressions?",
+    "answer": "A functional interface is an interface with a single abstract method, such as Runnable or Function. Lambdas can be used to provide implementations of functional interfaces succinctly. This aligns with Java’s push towards functional programming, enabling the use of method references and inline logic without verbose anonymous class syntax."
+  },
+  {
+    "question": "39. How does the 'try-with-resources' statement help with resource management?",
+    "answer": "try-with-resources automatically closes resources that implement AutoCloseable at the end of the block, even if an exception occurs. This ensures proper cleanup of resources (like I/O streams or database connections) without requiring a finally block, reducing boilerplate and preventing resource leaks."
+  },
+  {
+    "question": "40. What is reflection and when might you use it?",
+    "answer": "Reflection is a feature that allows code to inspect and manipulate classes, methods, and fields at runtime. It’s useful for frameworks, dependency injection, and tools that need to work with classes unknown at compile time. However, reflection can impact performance and break encapsulation, so it should be used judiciously."
+  },
+  {
+    "question": "41. What is serialization and how do you serialize a Java object?",
+    "answer": "Serialization is the process of converting an object’s state into a byte stream for storage or transmission. To serialize an object, it must implement the Serializable interface. Use ObjectOutputStream’s writeObject() method to serialize and ObjectInputStream’s readObject() method to deserialize. Care must be taken with serialVersionUID and evolving classes."
+  },
+  {
+    "question": "42. What is the module system introduced in Java 9?",
+    "answer": "The Java Platform Module System (JPMS) allows developers to organize code into modules with explicit dependencies and exports. It improves encapsulation and enables constructing reliable, maintainable, and scalable applications. Modules help reduce classpath conflicts, enhance security, and enable building more compact runtime images."
+  },
+  {
+    "question": "43. How do annotations work in Java and why are they useful?",
+    "answer": "Annotations are metadata that can be added to classes, methods, fields, and parameters. They provide information to compilers, frameworks, and tools. For example, @Override helps the compiler check overriding correctness, @Deprecated marks APIs as obsolete, and custom annotations help frameworks perform dependency injection, validation, or code generation at runtime or compile time."
+  },
+  {
+    "question": "44. What is the difference between a checked and an unchecked exception?",
+    "answer": "Checked exceptions (subclasses of Exception but not RuntimeException) must be declared in a method’s 'throws' clause or handled within the method. Unchecked exceptions (RuntimeExceptions) do not require explicit handling. Checked exceptions represent foreseeable, recoverable conditions, while unchecked exceptions generally indicate programming errors."
+  },
+  {
+    "question": "45. How do you implement equals() and hashCode() properly?",
+    "answer": "When overriding equals(), follow symmetry, reflexivity, transitivity, and consistency. Compare only fields that determine equality. When overriding hashCode(), ensure that equal objects produce the same hash code. The hash code should incorporate the same fields used in equals(). Consistency between equals() and hashCode() ensures correct behavior in hashed data structures like HashSet or HashMap."
+  },
+  {
+    "question": "46. What are design patterns and how might you use them in Java?",
+    "answer": "Design patterns are proven solutions to common software design problems. They provide templates for structuring code to be more maintainable, flexible, and scalable. For example, the Singleton pattern ensures only one instance of a class, the Factory pattern encapsulates object creation logic, and the Observer pattern enables event-driven communication. Patterns improve code clarity and consistency."
+  },
+  {
+    "question": "47. What is the difference between parallel streams and sequential streams?",
+    "answer": "Sequential streams process elements one at a time in order, while parallel streams divide the workload into multiple sub-tasks executed by different threads on multiple CPU cores. Parallel streams can improve performance for CPU-intensive operations but can also add overhead and complexity. Careful consideration, benchmarking, and avoiding shared mutable state are essential when using parallel streams."
+  },
+  {
+    "question": "48. How do you benchmark and profile Java applications?",
+    "answer": "You can benchmark Java code using tools like JMH (Java Microbenchmark Harness), which helps produce accurate and reproducible results by isolating code under test and handling JVM warm-up. For profiling, tools like Java Flight Recorder, VisualVM, YourKit, or commercial profilers identify hotspots, memory leaks, and CPU usage patterns. Profiling allows you to target performance bottlenecks and optimize effectively."
+  },
+  {
+    "question": "49. How does the Executor framework simplify concurrency?",
+    "answer": "The Executor framework decouples task submission from thread management. Instead of manually creating and managing threads, you submit tasks (Runnables or Callables) to an ExecutorService, which manages a pool of threads. This improves scalability, resource management, and code readability by standardizing how tasks are queued, scheduled, and executed."
+  },
+  {
+    "question": "50. How do record types introduced in Java 16 help developers?",
+    "answer": "Records provide a concise way to declare data-holding classes by automatically generating boilerplate methods like equals(), hashCode(), and toString(), as well as a compact constructor. They’re ideal for immutable data transfer objects, reducing the verbosity and increasing readability of simple ‘data carrier’ classes."
+  }
+]

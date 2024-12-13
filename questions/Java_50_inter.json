@@ -1,0 +1,202 @@
+[
+  {
+    "question": "1. What is the difference between using '==' and the equals() method for comparing strings?",
+    "answer": "Using '==' checks if two references point to the same object in memory, while equals() checks if the values are the same. For Strings, '==' often fails for strings that have the same content but are different objects. The equals() method compares the character sequences, ensuring correct logical equality checks."
+  },
+  {
+    "question": "2. How do you use the 'instanceof' operator, and when is it appropriate?",
+    "answer": "The 'instanceof' operator checks if an object is an instance of a specified type. It’s appropriate when you need type-specific logic at runtime or when implementing safe casts. However, overusing instanceof can indicate poor OO design. Often, polymorphism or interfaces are more elegant solutions than repeated type checks."
+  },
+  {
+    "question": "3. How do you implement a custom comparator for sorting objects?",
+    "answer": "Implement the Comparator<T> interface and override the compare(T o1, T o2) method. In it, return a negative number, zero, or a positive number depending on whether o1 should be sorted before, equal to, or after o2. Comparators allow custom sorting orders independent of the object's natural ordering."
+  },
+  {
+    "question": "4. What is the purpose of the transient keyword in Java serialization?",
+    "answer": "The transient keyword marks a field to be excluded from default serialization. Fields marked transient are not saved or restored, often because they represent sensitive information, are derived data, or are not meaningful outside the current runtime environment."
+  },
+  {
+    "question": "5. How does the try-with-resources statement simplify resource management?",
+    "answer": "try-with-resources automatically closes resources that implement AutoCloseable at the end of the try block, even if an exception is thrown. This eliminates the need for a finally block to explicitly close resources, reduces boilerplate code, and prevents resource leaks."
+  },
+  {
+    "question": "6. What is the difference between a List and a Set?",
+    "answer": "A List maintains insertion order, can contain duplicate elements, and provides indexed access. A Set does not allow duplicates and does not necessarily maintain insertion order (except LinkedHashSet), focusing on uniqueness rather than positional indexing."
+  },
+  {
+    "question": "7. When would you use a LinkedHashMap instead of a HashMap?",
+    "answer": "A LinkedHashMap preserves insertion order (or access order if configured), making it useful when you need predictable iteration order. While HashMap provides no ordering guarantees, LinkedHashMap trades a small performance overhead for stable ordering and ease of iteration in predictable sequence."
+  },
+  {
+    "question": "8. How do you convert a Stream to a List in Java?",
+    "answer": "Use the Stream’s collect method with Collectors.toList(). For example: List<T> result = stream.collect(Collectors.toList()). This terminal operation gathers all stream elements into a List."
+  },
+  {
+    "question": "9. What is the purpose of the Optional type?",
+    "answer": "Optional is a container object that may or may not hold a non-null value. It encourages a more explicit handling of nullable results, avoiding NullPointerExceptions. Instead of returning null, returning an Optional makes the absence of a value part of the method’s contract."
+  },
+  {
+    "question": "10. How does the forEach method differ from a traditional for-loop?",
+    "answer": "forEach is a higher-level method that takes a lambda or consumer, operating on each element without explicit indexing. A traditional for-loop provides manual iteration with indices. forEach is more declarative and concise, but less flexible if you need complex indexing or to break early."
+  },
+  {
+    "question": "11. How do you safely publish an object reference to multiple threads?",
+    "answer": "To safely publish an object reference, you can use final fields, static initializers, or volatile fields. Alternatively, publishing through a properly synchronized block or a thread-safe collection ensures visibility and prevents threads from seeing a partially constructed or stale object state."
+  },
+  {
+    "question": "12. What is a daemon thread, and how do you create one?",
+    "answer": "A daemon thread runs in the background to support non-user threads. The JVM does not wait for daemon threads to finish before exiting. You create one by calling thread.setDaemon(true) before starting the thread. They are suitable for housekeeping tasks but should not hold critical logic."
+  },
+  {
+    "question": "13. How do you prevent a class from being subclassed?",
+    "answer": "Marking a class as final prevents it from being subclassed. For example: public final class MyClass. Alternatively, using private constructors or sealed classes (Java 17+) can also restrict subclassing."
+  },
+  {
+    "question": "14. What is a static import and when would you use it?",
+    "answer": "A static import lets you access static members without qualifying them with class names. It’s used to improve code readability in cases where static members (e.g., constants or utility methods) are frequently accessed. For example: import static java.lang.Math.*; allows you to write sqrt(4) instead of Math.sqrt(4)."
+  },
+  {
+    "question": "15. How do you create a custom annotation and what is a retention policy?",
+    "answer": "Defining a custom annotation involves using @interface. For example: @interface MyAnnotation. A retention policy specifies how long annotations are retained: SOURCE (discarded after compilation), CLASS (stored in class file but not accessible at runtime), or RUNTIME (accessible at runtime via reflection). Use @Retention to specify the policy."
+  },
+  {
+    "question": "16. What is the difference between a CheckedException and a RuntimeException?",
+    "answer": "CheckedExceptions must be either caught or declared in the method’s signature with 'throws'. They indicate recoverable conditions. RuntimeExceptions (unchecked) can occur anywhere and represent programming errors. They don’t need to be declared or caught, though proper handling is still encouraged."
+  },
+  {
+    "question": "17. How does a BufferedReader differ from a FileReader?",
+    "answer": "A FileReader reads characters directly from a file. A BufferedReader wraps another Reader (like a FileReader) and uses a buffer to reduce I/O calls, improving performance. BufferedReader also provides convenient methods like readLine(), which aren’t available in FileReader."
+  },
+  {
+    "question": "18. How do you format dates using the java.time API?",
+    "answer": "Use the DateTimeFormatter class. For example: LocalDate date = LocalDate.now(); String formatted = date.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd\"));. This allows flexible and type-safe formatting of date-time objects introduced in Java 8."
+  },
+  {
+    "question": "19. What is the purpose of the Path and Files classes in the NIO.2 API?",
+    "answer": "Path represents a platform-independent file system path. Files is a utility class that provides static methods to manipulate files and directories (copy, move, readAllLines, etc.). Together, they offer improved file handling over the old java.io.File, supporting better error handling and symbolic links."
+  },
+  {
+    "question": "20. How do you ensure a class is immutable?",
+    "answer": "Make all fields private and final, provide no setters, and ensure no mutable fields are exposed. If a field is mutable (e.g., a List), return defensive copies in getters. Also, ensure that 'this' reference does not escape during construction."
+  },
+  {
+    "question": "21. How do you compare two enum values?",
+    "answer": "You can use '==' safely with enums because there is a single instance per enum constant. Alternatively, compareTo() provides their relative order, and equals() essentially works the same as '==' for enums. Prefer '==' for simplicity and clarity."
+  },
+  {
+    "question": "22. When should you use a ConcurrentHashMap?",
+    "answer": "Use ConcurrentHashMap when multiple threads frequently access and update a map concurrently. It provides thread-safe operations and better scalability than synchronizing a normal HashMap. It reduces contention by using finer-grained locks or lock-free algorithms internally."
+  },
+  {
+    "question": "23. How can you execute code at a fixed interval using the ScheduledExecutorService?",
+    "answer": "Obtain a ScheduledExecutorService via Executors.newScheduledThreadPool(n) and then use scheduleAtFixedRate or scheduleWithFixedDelay methods to run tasks periodically. This provides a robust, thread-pool based approach to scheduling recurring tasks."
+  },
+  {
+    "question": "24. What is the purpose of a synchronized block vs. a synchronized method?",
+    "answer": "A synchronized method locks the entire method on the current instance (or the class for static methods). A synchronized block allows you to lock only a portion of code and specify a particular lock object. This can reduce contention and improve concurrency."
+  },
+  {
+    "question": "25. How do you handle interrupted exceptions in Java?",
+    "answer": "When InterruptedException is thrown, restore the thread’s interrupt status if you cannot handle it right away. Use Thread.currentThread().interrupt(). Failing to do so may swallow the interrupt signal. If you can handle it, do so gracefully (e.g., stop a long-running task)."
+  },
+  {
+    "question": "26. What is a try-finally block typically used for?",
+    "answer": "A try-finally block ensures that certain cleanup code runs regardless of whether an exception occurs. It’s traditionally used to close resources. Since Java 7, try-with-resources is preferred, but try-finally is still relevant for non-AutoCloseable operations."
+  },
+  {
+    "question": "27. How do you implement a thread-safe singleton?",
+    "answer": "One common approach is to use an enum for the singleton, guaranteeing a single instance. Another approach is double-checked locking with a volatile instance variable. Or you can use a static inner class that holds the instance, relying on class loading for thread safety."
+  },
+  {
+    "question": "28. What are the main functional interfaces in java.util.function?",
+    "answer": "Key functional interfaces include Predicate<T> (boolean-valued function), Function<T,R> (function mapping), Supplier<T> (no-arg supplier), Consumer<T> (consumes a value), and UnaryOperator/BinaryOperator. They standardize common lambda signatures and allow for more expressive functional code."
+  },
+  {
+    "question": "29. How do you create an unmodifiable collection?",
+    "answer": "Use Collections.unmodifiableList, unmodifiableSet, or unmodifiableMap. For example: List<T> readOnly = Collections.unmodifiableList(originalList). Since Java 9, List.of() or Set.of() also create immutable collections. Attempts to modify them at runtime will throw UnsupportedOperationException."
+  },
+  {
+    "question": "30. What is a deadlock, and how can you detect or prevent it?",
+    "answer": "A deadlock occurs when two or more threads hold locks the other threads need, causing all to wait indefinitely. Detection can be done by analyzing thread dumps or using monitoring tools. Prevention involves ordering lock acquisition consistently, using try-lock with timeouts, or reducing lock granularity."
+  },
+  {
+    "question": "31. What does the 'volatile' keyword guarantee?",
+    "answer": "volatile ensures that reads and writes of a variable are always done from main memory and are visible to all threads immediately. It prevents certain reorderings. However, volatile does not guarantee atomic compound actions, just visibility and ordering for that specific variable."
+  },
+  {
+    "question": "32. How do you create a custom thread pool?",
+    "answer": "Use the ThreadPoolExecutor class directly or via Executors factory methods. You can specify core pool size, maximum pool size, keep-alive time, and a blocking queue. Custom RejectedExecutionHandlers handle tasks when the queue is full. This provides fine-grained control over concurrency policies."
+  },
+  {
+    "question": "33. What is method overloading and what is its benefit?",
+    "answer": "Method overloading is defining multiple methods with the same name but different parameter lists. It provides convenience and readability by allowing methods that conceptually do 'the same thing' for different types or parameter counts without different method names."
+  },
+  {
+    "question": "34. How do you find the size of a collection in Java?",
+    "answer": "For most collections (List, Set, Map), use the size() method. For arrays, you use length (array.length). The size() method runs in O(1) for standard collections. Avoid looping to find size, as size() is typically already optimized."
+  },
+  {
+    "question": "35. What are streams' intermediate and terminal operations?",
+    "answer": "Intermediate operations (e.g., filter, map, distinct, limit) return a new stream and are lazy. Terminal operations (e.g., forEach, collect, reduce) produce a final result or side effect. Terminal operations trigger the actual processing of elements through the pipeline."
+  },
+  {
+    "question": "36. How can you handle large integer values beyond the range of primitive types?",
+    "answer": "Use BigInteger for arbitrary-precision integers. It supports operations like addition, subtraction, multiplication, and comparison without overflow. BigInteger is immutable, and operations may be slower than primitive arithmetic due to their arbitrary precision nature."
+  },
+  {
+    "question": "37. What is a ClassCastException, and how can you avoid it?",
+    "answer": "ClassCastException occurs when casting an object to a type it does not inherit from. To avoid it, ensure correct type hierarchies, use generics to enforce compile-time checks, and test with instanceof before casting if unsure. Using polymorphism reduces the need for downcasting."
+  },
+  {
+    "question": "38. How do you retrieve information about a class using reflection?",
+    "answer": "Obtain a Class object via Class<?> clazz = MyClass.class or Class.forName(\"my.package.MyClass\"), then call methods like getDeclaredMethods(), getDeclaredFields(), getAnnotations() to inspect it. Reflection allows runtime analysis and instantiation but should be used sparingly due to performance and security considerations."
+  },
+  {
+    "question": "39. What is the difference between peek() and map() in streams?",
+    "answer": "map() transforms each element of a stream into another object, changing the stream’s content. peek() is an intermediate operation primarily for debugging, allowing you to observe the current elements without changing them. peek() should not be used for important side-effects; it's mainly for logging and debugging."
+  },
+  {
+    "question": "40. How do you handle resources that need initialization and teardown in JUnit tests?",
+    "answer": "Use @BeforeEach to set up and @AfterEach to tear down resources for each test method. For class-level initialization, use @BeforeAll and @AfterAll (with a static method). This ensures a consistent, repeatable test environment."
+  },
+  {
+    "question": "41. What is the difference between a HashSet and a TreeSet?",
+    "answer": "HashSet uses a hash table, offering O(1) average complexity for add, remove, and contains. It does not guarantee order. TreeSet is backed by a balanced tree (Red-Black tree), providing O(log n) operations but maintaining elements in sorted order."
+  },
+  {
+    "question": "42. Why would you use a CopyOnWriteArrayList?",
+    "answer": "CopyOnWriteArrayList is suitable when you have mostly read operations and few modifications. It creates a fresh copy of the underlying array on each write, making reads very fast and thread-safe without synchronization overhead. It’s inefficient if writes are frequent."
+  },
+  {
+    "question": "43. How do you convert an array to a stream?",
+    "answer": "Use Arrays.stream(array) or Stream.of(array). This creates a Stream from the given array, enabling the use of stream operations like filter, map, and reduce on array elements."
+  },
+  {
+    "question": "44. How does the @FunctionalInterface annotation help?",
+    "answer": "@FunctionalInterface ensures that the interface you annotate has exactly one abstract method, making it a valid target for lambdas. The compiler will produce an error if you add a second abstract method, preserving the interface’s functional nature."
+  },
+  {
+    "question": "45. How do you apply method references in Java?",
+    "answer": "Method references are shorthand for lambdas that call a specific method. For example, String::length is a method reference that can replace s -> s.length(). They improve readability by referencing existing methods directly, without extra lambda syntax."
+  },
+  {
+    "question": "46. How do you use the Properties class to load configuration?",
+    "answer": "Create a Properties object and call load() with an InputStream to read key-value pairs from a properties file. Then use getProperty(key) to retrieve values. This is a simple mechanism for externalizing configuration data."
+  },
+  {
+    "question": "47. What is the difference between parallel() and parallelStream()?",
+    "answer": "parallelStream() is called on a Collection to create a parallel stream directly. parallel() is called on an existing stream to switch it to parallel mode. Both instruct the system to potentially process elements in parallel using the common ForkJoinPool."
+  },
+  {
+    "question": "48. How do you ensure that an object can be stored in a HashSet or used as a HashMap key correctly?",
+    "answer": "Implement equals() and hashCode() consistently. If two objects are equal according to equals(), they must have the same hashCode(). Failing this breaks contract guarantees and leads to unpredictable behavior in hashed data structures."
+  },
+  {
+    "question": "49. How can you encode and decode Base64 in Java?",
+    "answer": "Use the java.util.Base64 class. For encoding: Base64.getEncoder().encodeToString(bytes); For decoding: Base64.getDecoder().decode(string). It’s a built-in facility since Java 8 for converting binary data to a text representation and back."
+  },
+  {
+    "question": "50. How do you handle custom logic when deserializing objects?",
+    "answer": "Implement the readObject and writeObject methods in your Serializable class to customize the deserialization and serialization process. Alternatively, use Externalizable for full control or frameworks like Jackson with custom serializers/deserializers."
+  }
+]
