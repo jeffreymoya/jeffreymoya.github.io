@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeffrey Moya — Portfolio</title>
+    <!-- 
+    Portfolio page for Jeffrey Moya
+    
+    To update gallery images:
+    1. Replace image files in the same directory
+    2. Update src attributes in the gallery section
+    3. Update alt text descriptions for accessibility
+    
+    To add more screenshots:
+    1. Add new <figure> elements in the gallery section
+    2. Include meaningful alt text and optional figcaption
+    -->
+    <style>
+        /* CSS Variables for dark theme */
+        :root {
+            --primary-text: #cccccc;
+            --secondary-text: #9ca3af;
+            --accent-text: #e5e7eb;
+            --border-light: #374151;
+            --background: #1e1e1e;
+            --surface: #252526;
+            --hover: #2d2d30;
+            --focus: #007acc;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --code-bg: #1e1e1e;
+            --highlight: #264f78;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cascadia Code', 'Fira Code', 'Source Code Pro', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background: var(--background);
+        }
+
+        /* Layout container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header styles */
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border-light);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .role {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            font-weight: 500;
+        }
+
+        /* Main content */
+        main {
+            padding: 80px 0;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--accent-text);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        /* Project section styles */
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-text);
+            margin-bottom: 16px;
+        }
+
+        .meta {
+            color: var(--secondary-text);
+            font-weight: 500;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        /* List styles */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-content > ul > li {
+            margin-bottom: 24px;
+            padding: 20px;
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .project-content ul ul {
+            margin-top: 16px;
+            padding-left: 0;
+        }
+
+        .project-content ul ul li {
+            background: var(--background);
+            margin-bottom: 12px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 3px solid var(--focus);
+            position: relative;
+        }
+
+        .project-content ul ul li::before {
+            content: "→";
+            color: var(--focus);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        strong {
+            color: var(--accent-text);
+            font-weight: 600;
+        }
+
+        code {
+            background: var(--hover);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: var(--accent-text);
+        }
+
+        /* Gallery styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery figure {
+            background: var(--surface);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery figure:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery figcaption {
+            padding: 16px;
+            font-weight: 500;
+            color: var(--secondary-text);
+            text-align: center;
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .lightbox img {
+            max-width: calc(100vw - 40px);
+            max-height: calc(100vh - 80px);
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 1001;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-close:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--focus);
+            color: var(--focus);
+            outline: none;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border-light);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--secondary-text);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            main {
+                padding: 40px 0;
+            }
+
+            section {
+                margin-bottom: 60px;
+            }
+
+            header {
+                padding: 40px 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .gallery img {
+                height: 200px;
+            }
+
+            .project-content > ul > li {
+                padding: 16px;
+                margin-bottom: 16px;
+            }
+
+            .project-content ul ul li {
+                padding: 10px 12px;
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .lightbox,
+            .gallery {
+                display: none;
+            }
+            
+            header {
+                border-bottom: 2px solid #000;
+                padding: 20px 0;
+            }
+            
+            main {
+                padding: 20px 0;
+            }
+            
+            section {
+                margin-bottom: 30px;
+                break-inside: avoid;
+            }
+            
+            .project-content > ul > li {
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+                break-inside: avoid;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        .gallery figure:focus {
+            outline: 2px solid var(--focus);
+            outline-offset: 2px;
+        }
+
+        .lightbox-close:focus {
+            outline: 2px solid var(--focus);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AP Automation System</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+
+            <section id="gallery">
+                <h2>Project Screenshots</h2>
+                <div class="gallery">
+                    <figure tabindex="0" role="button" aria-label="Open high-volume import workflow screenshot">
+                        <img src="screenshot-20250827-055355.png" 
+                             alt="High-volume import workflow interface showing batch processing status and configuration options"
+                             loading="lazy" 
+                             decoding="async">
+                        <figcaption>Invoice Page</figcaption>
+                    </figure>
+                    
+                    <figure tabindex="0" role="button" aria-label="Open entity reconciliation results screenshot">
+                        <img src="screenshot-20250827-071006.png" 
+                             alt="Entity reconciliation interface displaying matching results and adjudication controls"
+                             loading="lazy" 
+                             decoding="async">
+                        <figcaption>Backend Screenshot</figcaption>
+                    </figure>
+                    
+                    <figure tabindex="0" role="button" aria-label="Open embeddings pipeline monitoring screenshot">
+                        <img src="screenshot-20250827-080559.png" 
+                             alt="Embeddings pipeline monitoring view with queued work and processing metrics"
+                             loading="lazy" 
+                             decoding="async">
+                        <figcaption>AI Pipeline Monitoring</figcaption>
+                    </figure>
+                    
+                    <figure tabindex="0" role="button" aria-label="Open document generation interface screenshot">
+                        <img src="screenshot-20250827-112229.png" 
+                             alt="Document PDF generation interface for invoices and payment vouchers"
+                             loading="lazy" 
+                             decoding="async">
+                        <figcaption>Async Document Generation System</figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section id="project">
+                <div class="project-content">
+                    <div class="meta">Singapore • Aug 2024 – Present</div>
+                    
+                    <article class="role">
+                        <ul>
+                            <li>
+                                <strong>Scope:</strong> Supabase‑backed,
+                                multi‑tenant platform for high‑volume imports,
+                                product/supplier reconciliation, and payments
+                                workflows.
+                            </li>
+                            <li>
+                                <strong>Outcomes:</strong> Reduced duplicate writes,
+                                deterministic job terminal states, higher match
+                                rates, and improved operability via richer
+                                telemetry.
+                            </li>
+                            <li>
+                                <strong>Highlights:</strong>
+                                <ul>
+                                    <li>
+                                        Idempotent APIs with safe‑retry semantics
+                                        using idempotency keys and response replay
+                                        to achieve effectively‑once effects under
+                                        retries.
+                                    </li>
+                                    <li>
+                                        End‑to‑end observability: trace context
+                                        propagation, correlation IDs, structured
+                                        logs, and normalized error contracts to
+                                        accelerate triage.
+                                    </li>
+                                    <li>
+                                        Strong multi‑tenancy: Row‑Level Security
+                                        (RLS) with role‑based authorization;
+                                        default‑deny and least‑privilege across
+                                        services.
+                                    </li>
+                                    <li>
+                                        Deterministic import orchestration with
+                                        watchdog heartbeats, bounded
+                                        concurrency/backpressure, and automatic
+                                        duplicate detection/skip.
+                                    </li>
+                                    <li>
+                                        Extensible import framework (suppliers,
+                                        products, POs): column mapping, schema
+                                        validation, operator choices,
+                                        status/summary, and structured error logs.
+                                    </li>
+                                    <li>
+                                        Event‑driven post‑processing to reconcile
+                                        cross‑entity references and ensure
+                                        referential integrity after batch
+                                        completion.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>AI:</strong>
+                                <ul>
+                                    <li>
+                                        Hybrid entity resolution: deterministic
+                                        rules + vector similarity (embeddings) +
+                                        LLM‑assisted adjudication to improve
+                                        matching precision/recall.
+                                    </li>
+                                    <li>
+                                        Resilient embeddings pipeline with queued
+                                        work, idempotent workers, stuck‑task
+                                        detection/retry, and rate/budget limiting
+                                        for long‑running drains.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Supabase:</strong>
+                                <ul>
+                                    <li>
+                                        RLS‑first schema; Postgres RPC (SQL
+                                        functions) for orchestration; Edge Functions
+                                        (Deno) for background jobs/webhooks.
+                                    </li>
+                                    <li>
+                                        Type‑safe DB access with generated
+                                        TypeScript types and tenant‑scoped
+                                        repositories/queries.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Front‑end:</strong>
+                                <ul>
+                                    <li>
+                                        Next.js 13 static export to AWS S3 with
+                                        branch‑based deployments; SWC‑optimized builds and
+                                        custom asset handling.
+                                    </li>
+                                    <li>
+                                        Type‑safe Supabase integration: generated TS types
+                                        and lightweight wrappers for RPC/Edge Functions
+                                        (<code>withRPC</code>/<code>withEdgeFunction</code>/<code>withQuery</code>) with unified
+                                        error handling and auth redirects.
+                                    </li>
+                                    <li>
+                                        Predictable data layer: React Query for server state,
+                                        RTK Query for targeted resources, and Redux Toolkit +
+                                        redux‑persist for app/session state.
+                                    </li>
+                                    <li>
+                                        Robust forms: React Hook Form + Zod schemas for
+                                        complex, nested validation across UI flows.
+                                    </li>
+                                    <li>
+                                        Document PDFs: @react-pdf/renderer components for
+                                        invoices/POs/GRNs/SOA/payment vouchers with
+                                        pdf.js viewer/print support.
+                                    </li>
+                                    <li>
+                                        Imports/exports: CSV/XLSX ingestion with column
+                                        mapping + confirm flows; client‑supplied idempotency
+                                        keys on Edge calls for safe retries; progress/error
+                                        logs UI.
+                                    </li>
+                                    <li>
+                                        Auth & RBAC: Supabase session context + route HOC,
+                                        permission‑gated UI and RLS‑aware client behavior.
+                                    </li>
+                                    <li>
+                                        Testing: Jest + React Testing Library (unit/snapshots)
+                                        and Playwright E2E with retries/traces and
+                                        deterministic fixtures.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Tech:</strong> Deno, TypeScript, Supabase,
+                                PostgreSQL
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jeffrey Moya.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox overlay -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer">&times;</button>
+            <img id="lightboxImg" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Simple lightbox implementation
+        (function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const galleryImages = document.querySelectorAll('.gallery figure');
+
+            // Open lightbox
+            function openLightbox(imgSrc, imgAlt) {
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                lightboxClose.focus();
+            }
+
+            // Close lightbox
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                lightboxImg.src = '';
+                lightboxImg.alt = '';
+            }
+
+            // Event listeners
+            galleryImages.forEach(figure => {
+                const img = figure.querySelector('img');
+                
+                // Click handler
+                figure.addEventListener('click', () => {
+                    openLightbox(img.src, img.alt);
+                });
+
+                // Keyboard handler
+                figure.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openLightbox(img.src, img.alt);
+                    }
+                });
+            });
+
+            // Close button
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // Click outside image
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
