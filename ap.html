@@ -44,10 +44,14 @@
         }
 
         body {
-            font-family: 'Cascadia Code', 'Fira Code', 'Source Code Pro', 'Monaco', 'Consolas', 'Ubuntu Mono', monospace;
-            line-height: 1.6;
+            font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+            line-height: 1.7;
             color: var(--primary-text);
             background: var(--background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
         }
 
         /* Layout container */
@@ -61,16 +65,17 @@
         header {
             background: var(--surface);
             border-bottom: 1px solid var(--border-light);
-            padding: 60px 0;
+            padding: 20px 0;
             text-align: center;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             font-weight: 700;
             color: var(--primary-text);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             letter-spacing: -0.02em;
+            line-height: 1.15;
         }
 
         .role {
@@ -81,19 +86,20 @@
 
         /* Main content */
         main {
-            padding: 80px 0;
+            padding: 20px 0;
         }
 
         section {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
         }
 
         h2 {
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             font-weight: 600;
             color: var(--accent-text);
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             text-align: center;
+            letter-spacing: -0.01em;
         }
 
         /* Project section styles */
@@ -112,8 +118,9 @@
         .meta {
             color: var(--secondary-text);
             font-weight: 500;
-            margin-bottom: 24px;
-            font-size: 1.1rem;
+            margin-bottom: 28px;
+            font-size: 1.125rem;
+            letter-spacing: 0.003em;
         }
 
         /* List styles */
@@ -123,10 +130,10 @@
         }
 
         .project-content > ul > li {
-            margin-bottom: 24px;
-            padding: 20px;
+            margin-bottom: 28px;
+            padding: 24px 28px;
             background: var(--surface);
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid var(--border-light);
         }
 
@@ -168,9 +175,9 @@
         /* Gallery styles */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -307,7 +314,7 @@
             }
 
             header {
-                padding: 40px 0;
+                padding: 20px 0;
             }
 
             .gallery {
